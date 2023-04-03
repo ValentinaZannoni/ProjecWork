@@ -1,0 +1,9 @@
+192.168.33.152:80/items     //get all
+
+192.168.33.152:80/items/id      //get single
+
+192.168.33.152:80/items e passi nel body il file json dell'elemento da creare       //create
+
+192.168.33.152:80/items/id e passi nel body il file json dell'elemento da aggiornare    //update
+
+192.168.33.152:80/items/id      //delete
