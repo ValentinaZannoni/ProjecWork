@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/filter';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-table-list',
@@ -11,21 +12,35 @@ export class TableListComponent implements OnInit {
 
   orderby: string;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit() {
+    console.log("aaaaaaaaaaaaaaaaa")
    this.getProva()
   }
 
   getProva(){
-  //   this.route.queryParams
-  //   .subscribe(params => {
-  //     console.log(params); // { orderby: "price" }
-  //     this.orderby = params.orderby;
-  //     console.log(this.orderby); // price
-  //   }
-  // );
-  }
+    // questo è per i parametri 
+    // let headers = new HttpHeaders({
+    //   'x-rapidapi-host': 'random-facts2.p.rapidapi.com',
+    //   'x-rapidapi-key': 'your-api-key'
+    // });
+    this.http
+    // con parametri 
+
+      // .get<any>('https://random-facts2.p.rapidapi.com/getfact', {
+      //   headers: headers
+      // })
+
+     // senza parametri 
+
+       .get<any>('http://192.168.33.152:80/items')
+      .subscribe(data => {
+        console.log(data);
+      });
+      console.log("bbbbbbbbbbbbbbbbbbbbbb")
+
+      }
 
   
   getProvaWithFilters(){
