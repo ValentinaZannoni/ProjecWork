@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/filter';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { Course } from '../models/course';
 
 @Component({
   selector: 'app-table-list',
@@ -11,46 +12,34 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 export class TableListComponent implements OnInit {
 
   orderby: string;
+  courses: Course[] = [{
+    id: 6487,
+    title : "Prova",
+    subject : "Programmazione",
+    price: null,
+    description : "Questo è un bel corso",
+  },
+  {
+    id: 5544,
+    title : "Prova2",
+    subject : "Matematica",
+    price: null,
+    description : "Questo è un brutto corso",
+
+  }
+];
 
   constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit() {
-   console.log("aaaaaaaaaaaaaaaaa")
-   this.getProva()
+   this.getCourses()
   }
 
-  getProva(){
-    // questo è per i parametri 
-    // let headers = new HttpHeaders({
-    //   'x-rapidapi-host': 'random-facts2.p.rapidapi.com',
-    //   'x-rapidapi-key': 'your-api-key'
+  getCourses(){
+    // this.http.get('http://192.168.33.171:80/courses').subscribe((data: any[]) => {
+    //   const users = data.map(user => Object.assign(new Course(), user));
+
+    //   console.log(users);
     // });
-    this.http
-    // con parametri 
-
-      // .get<any>('https://random-facts2.p.rapidapi.com/getfact', {
-      //   headers: headers
-      // })
-
-     // senza parametri 
-
-       .get<any>('http://192.168.33.171:80/items')
-      .subscribe(data => {
-        console.log(data);
-      });
-      // console.log("data");
-
-      }
-
-  
-  getProvaWithFilters(){
-  //   this.route.queryParamMap
-  //   .subscribe((params) => {
-  //     this.paramsObject = { ...params.keys, ...params };
-  //     console.log(this.paramsObject);
-  //   }
-  // );
-  
   }
-
 }
