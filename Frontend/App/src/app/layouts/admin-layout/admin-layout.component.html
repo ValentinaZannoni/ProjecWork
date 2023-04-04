@@ -1,5 +1,20 @@
-<div class="wrapper">
-    <div style="text-align: center;" class="sidebar center" data-color="blue">
+<div *ngIf="!auth.isLogged" style="align-items: center; margin-top: 100px;">
+    <div style="flex-direction:column; margin-top: 50px;; width: 700px; height: 400px; background: rgb(106, 172, 239); border-radius: 20%;">
+        <div style="margin-top:30px;">
+            USERNAME 
+        </div>
+        <input >
+        <div style="margin-top:30px;">
+            PASSWORD 
+        </div>
+        <input >
+        <div style="margin-top:30px;">
+            <button (click)="checkLogin()">LOGIN</button>
+        </div>
+    </div>
+</div>
+<div *ngIf="auth.isLogged" class="wrapper">
+  <div style="text-align: center;" class="sidebar center" data-color="blue">
         <app-sidebar></app-sidebar>
     </div>
     <div class="main-panel">
@@ -8,3 +23,5 @@
         <app-footer></app-footer>
     </div>
 </div>
+  
+

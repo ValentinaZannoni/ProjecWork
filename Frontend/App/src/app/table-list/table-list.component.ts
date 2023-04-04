@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/filter';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Course } from '../models/course';
+import { AuthService } from '../layouts/admin-layout/auth.service';
 
 @Component({
   selector: 'app-table-list',
@@ -29,10 +30,11 @@ export class TableListComponent implements OnInit {
   }
 ];
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(public auth: AuthService, private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit() {
    this.getCourses()
+   if(this.auth.isLogged) console.log("sono loggatoooo")
   }
 
   getCourses(){
