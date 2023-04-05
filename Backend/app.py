@@ -14,7 +14,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 db = SQLAlchemy(app)
 
 class Item(db.Model):
-  id = db.Column(db.bigInteger, primary_key=True)
+  id = db.Column(db.Integer, primary_key=True)
   titolo = db.Column(db.String(80), unique=True, nullable=False)
   regista = db.Column(db.String(80), unique=True, nullable=False)
   compagnia = db.Column(db.String(80), unique=True, nullable=False)
@@ -76,6 +76,14 @@ def get_user(id):
   user = User.query.get(id)
   del user.__dict__['_sa_instance_state']
   return jsonify(user.__dict__)
+
+@app.route('/users', methods=['GET'])
+def get_users():
+  items = []
+  for item in db.session.query(User).all():
+    del item.__dict__['_sa_instance_state']
+    items.append(item.__dict__)
+  return jsonify(items)
 
 @app.route('/users', methods=['POST'])
 def create_user():
