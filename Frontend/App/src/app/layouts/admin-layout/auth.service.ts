@@ -8,7 +8,12 @@ export class AuthService {
 
   constructor() { }
 
-  public isLogged: boolean = false;
+  public name: string;
+  public surname: string;
+  public phoneNumber: string;
+  public role: string;
+  public cf: string;
   public email: string;
   public password: string;
+  public isLogged: boolean = false; 
 }
