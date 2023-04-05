@@ -28,7 +28,7 @@ class User(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(80), nullable=False)
   surname = db.Column(db.String(80), nullable=False)
-  phoneNumber = db.Column(db.Integer, unique=True, nullable=False)
+  phoneNumber = db.Column(db.BigInteger, unique=True, nullable=False)
   emailAddress = db.Column(db.String(80), unique=True, nullable=False)
   password = db.Column(db.String(80),  nullable=False)
   age = db.Column(db.Integer,  nullable=False)
@@ -77,35 +77,42 @@ def get_user(id):
   del user.__dict__['_sa_instance_state']
   return jsonify(user.__dict__)
 
+@app.route('/users', methods=['GET'])
+def get_users():
+  users = []
+  for user in db.session.query(User).all():
+    del user.__dict__['_sa_instance_state']
+    users.append(user.__dict__)
+  return jsonify(users)
+
 @app.route('/users', methods=['POST'])
 def create_user():
   body = request.get_json()
-  db.session.add(User(body['name'], body['surname'], body['phoneNumber'], body['emailAddress'], body['password'], body['age'], body['role'], body['cf']))
+  db.session.add(User(name=body['name'], surname=body['surname'], phoneNumber=body['phoneNumber'], emailAddress=body['emailAddress'], password=body['password'], age=body['age'], role=body['role'], cf=body['cf']))
   db.session.commit()
   return "user created"
 
 # Course
+@app.route('/courses', methods=['POST'])
+def create_courses():
+  body = request.get_json()
+  db.session.add(Course(title=body['title'], description=body['description'], subject=body['subject'], price=body['price'], teacherId=body['teacherId']))
+  db.session.commit()
+  return "course created"
+
+@app.route('/courses/<id>', methods=['GET'])
+def get_course(id):
+  course = Course.query.get(id)
+  del course.__dict__['_sa_instance_state']
+  return jsonify(course.__dict__)
+
 @app.route('/courses', methods=['GET'])
 def get_courses():
   courses = []
   for item in db.session.query(Course).all():
     del item.__dict__['_sa_instance_state']
-    course = {
-      "title": item.__dict__['title'],
-      "subject": item.__dict__['subject'],
-      "description": item.__dict__['description'],
-      "teacher": get_user(item.__dict__['idTeacher']),
-      "price": item.__dict__['price'],
-    }
-    courses.append(course)
+    courses.append(item.__dict__)
   return jsonify(courses)
-
-@app.route('/courses', methods=['POST'])
-def create_course():
-  body = request.get_json()
-  db.session.add(Course(body['title'], body['subject'], body['description'], body['idTeacher'], body['price']))
-  db.session.commit()
-  return "course created"
 
 # item
 @app.route('/items/<id>', methods=['GET'])
