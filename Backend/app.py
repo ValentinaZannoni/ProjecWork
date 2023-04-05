@@ -61,11 +61,11 @@ class Course(db.Model):
     self.price = price
 
 class Students(db.Model):
-  idTeacher = db.Column(db.Integer, primary_key=True)
-  idStudents = db.Column(db.Integer, primary_key=True)
+  idCourse = db.Column(db.Integer, primary_key=True)
+  idStudents = db.Column(db.Integer)
 
-  def __init__(self, idTeacher, idStudents):
-    self.idTeacher = idTeacher
+  def __init__(self, idCourse, idStudents):
+    self.idCourse = idCourse
     self.idStudents = idStudents
 
 db.create_all()
@@ -106,8 +106,6 @@ def create_course():
   db.session.add(Course(body['title'], body['subject'], body['description'], body['idTeacher'], body['price']))
   db.session.commit()
   return "course created"
-
-
 
 # item
 @app.route('/items/<id>', methods=['GET'])
