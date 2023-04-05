@@ -7,7 +7,7 @@
     </div>
     <div class="card">
       <h1>Sign in</h1>
-      <form #loginForm="ngForm">
+      <form #registerForm="ngForm">
         <div class="form-group">
           <input
             type="email"
@@ -31,13 +31,13 @@
         <button
           type="submit"
           class="btn btn-primary"
-          (click)="loginForm.valid && checkLogin()"
+          (click)="registerForm.valid && checkLogin()"
         >
           Submit
         </button>
       </form>
       <div class="links">
-        <a [routerLink]="['/register']">Create account</a>
+        <a [routerLink]="['/dashboard']">Already have an account?</a>
       </div>
     </div>
   </div>
