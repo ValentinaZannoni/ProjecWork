@@ -21,6 +21,8 @@ class Item(db.Model):
     self.regista = regista
     self.compagnia = compagnia
 
+
+
 db.create_all()
 
 @app.route('/items/<id>', methods=['GET'])
