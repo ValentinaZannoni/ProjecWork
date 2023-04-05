@@ -14,7 +14,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 db = SQLAlchemy(app)
 
 class Item(db.Model):
-  id = db.Column(db.Integer, primary_key=True)
+  id = db.Column(db.bigInteger, primary_key=True)
   titolo = db.Column(db.String(80), unique=True, nullable=False)
   regista = db.Column(db.String(80), unique=True, nullable=False)
   compagnia = db.Column(db.String(80), unique=True, nullable=False)
