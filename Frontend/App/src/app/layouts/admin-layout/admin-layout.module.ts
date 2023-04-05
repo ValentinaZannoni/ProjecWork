@@ -22,6 +22,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
     FormsModule,
     ChartsModule,
     NgbModule,
+    
     ToastrModule.forRoot()
   ],
   declarations: [
