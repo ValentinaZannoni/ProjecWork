@@ -1,50 +1,4 @@
-<div *ngIf="!auth.isLogged && !registering">
-  <div class="container">
-    <div class="logo">
-      <img
-        src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5be01d787b5e5b0001ebb6bb/0x0.png"
-      />
-    </div>
-    <div class="card">
-      <h1>Sign in</h1>
-      <form #loginForm="ngForm">
-        <div class="form-group">
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            placeholder="Email"
-            [(ngModel)]="auth.email"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <input
-            type="password"
-            class="form-control"
-            id="password"
-            placeholder="Password"
-            [(ngModel)]="auth.password"
-            required
-          />
-        </div>
-        <button
-          type="submit"
-          class="btn btn-primary"
-          (click)="loginForm.valid && checkLogin()">
-          Submit
-        </button>
-      </form>
-      <div class="links">
-        <a (click)="registering = !registering">
-         
-          <p>Create account</p>
-      </a>
-      </div>
-    </div>
-  </div>
-</div>
-<div *ngIf="!auth.isLogged && registering">
+<div *ngIf="!auth.isLogged">
   <div class="container">
     <div class="logo">
       <img
@@ -143,12 +97,12 @@
         </button>
       </form>
       <div class="links">
-        <a (click)="registering = !registering">Already have an account?</a>
+        <a [routerLink]="['/dashboard']">Already have an account?</a>
       </div>
     </div>
   </div>
 </div>
-<div *ngIf="auth.isLogged" class="wrapper">
+<!-- <div *ngIf="auth.isLogged" class="wrapper">
   <div style="text-align: center" class="sidebar center" data-color="blue">
     <app-sidebar></app-sidebar>
   </div>
@@ -157,4 +111,4 @@
     <router-outlet></router-outlet>
     <app-footer></app-footer>
   </div>
-</div>
+</div> -->

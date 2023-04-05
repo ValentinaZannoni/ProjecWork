@@ -7,6 +7,7 @@ import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription ,  Observable } from 'rxjs';
 import PerfectScrollbar from 'perfect-scrollbar';
 import { AuthService } from './auth.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-layout',
@@ -18,6 +19,7 @@ export class AdminLayoutComponent implements OnInit {
   private _router: Subscription;
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
+  public registering: boolean = false;
  
   constructor(public auth : AuthService, public location: Location, private router: Router) {}
 
