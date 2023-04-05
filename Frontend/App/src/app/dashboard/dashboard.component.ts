@@ -14,6 +14,8 @@ export class DashboardComponent implements OnInit {
     subject : "Programmazione",
     price: null,
     description : "Questo è un bel corso",
+    teacher : null,
+    students: null,
   },
   {
     id: 5544,
@@ -21,7 +23,8 @@ export class DashboardComponent implements OnInit {
     subject : "Matematica",
     price: 44.6,
     description : "Questo è un brutto corso",
-
+    teacher : null,
+    students: null,
   },
   {
     id: 2233,
@@ -29,7 +32,8 @@ export class DashboardComponent implements OnInit {
     subject : "Matematica",
     price: 44.6,
     description : "Questo è un brutto corso",
-
+    teacher : null,
+    students: null,
   },
   {
     id: 1123,
@@ -37,6 +41,8 @@ export class DashboardComponent implements OnInit {
     subject : "Matematica",
     price: 44.6,
     description : "Questo è un brutto corso",
+    teacher : null,
+    students: null,
 
   },
   {
@@ -45,6 +51,8 @@ export class DashboardComponent implements OnInit {
     subject : "Matematica",
     price: 44.6,
     description : "Questo è un brutto corso",
+    teacher : null,
+    students: null,
 
   },
   {
@@ -53,6 +61,8 @@ export class DashboardComponent implements OnInit {
     subject : "Matematica",
     price: 44.6,
     description : "Questo è un brutto corso",
+    teacher : null,
+    students: null,
 
   },
   {
@@ -61,6 +71,8 @@ export class DashboardComponent implements OnInit {
     subject : "Matematica",
     price: 44.6,
     description : "Questo è un brutto corso",
+    teacher : null,
+    students: null,
 
   },
   {
@@ -69,6 +81,8 @@ export class DashboardComponent implements OnInit {
     subject : "Matematica",
     price: 44.6,
     description : "Questo è un brutto corso",
+    teacher : null,
+    students: null,
 
   },
   {
@@ -77,6 +91,8 @@ export class DashboardComponent implements OnInit {
     subject : "Matematica",
     price: 44.6,
     description : "Questo è un brutto corso",
+    teacher : null,
+    students: null,
 
   }
 ];
@@ -102,6 +118,5 @@ export class DashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
   }
 }

@@ -19,6 +19,8 @@ export class TableListComponent implements OnInit {
     subject : "Programmazione",
     price: null,
     description : "Questo è un bel corso",
+    teacher : null,
+    students: null,
   },
   {
     id: 5544,
@@ -26,7 +28,8 @@ export class TableListComponent implements OnInit {
     subject : "Matematica",
     price: null,
     description : "Questo è un brutto corso",
-
+    teacher : null,
+    students: null,
   }
 ];
 

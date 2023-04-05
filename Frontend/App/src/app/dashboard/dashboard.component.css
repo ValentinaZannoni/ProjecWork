@@ -1,0 +1,15 @@
+.text-price {
+    color: green;
+    font-style: bold;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.text-description {
+    color: rgb(94, 90, 90);
+    font-style: bold;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+}
