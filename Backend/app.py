@@ -50,14 +50,14 @@ class Course(db.Model):
   title = db.Column(db.String(80), unique=True, nullable=False)
   subject =  db.Column(db.String(80), unique=True, nullable=False)
   description = db.Column(db.String(150), nullable=False)
-  idTeacher = db.Column(db.Integer, nullable=False)
+  teacherId = db.Column(db.Integer, nullable=False)
   price = db.Column(db.Integer, nullable=False)
 
-  def __init__(self, title, subject, description, idTeacher, price):
+  def __init__(self, title, subject, description, teacherId, price):
     self.title = title
     self.subject = subject
     self.description = description
-    self.idTeacher = idTeacher
+    self.teacherId = teacherId
     self.price = price
 
 class Students(db.Model):
