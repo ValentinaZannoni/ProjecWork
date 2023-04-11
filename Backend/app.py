@@ -92,6 +92,13 @@ def update_user(id):
   db.session.commit()
   return "user updated"
 
+# User delete
+@app.route('/users/<id>', methods=['DELETE'])
+def delete_user(id):
+  db.session.query(User).filter_by(id=id).delete()
+  db.session.commit()
+  return "user deleted"
+
 # Course
 @app.route('/courses', methods=['POST'])
 def create_courses():
