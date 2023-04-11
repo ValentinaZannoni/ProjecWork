@@ -3,6 +3,7 @@ docker compose up -d --build pythonapp
 docker exec -it db psql -U postgres
 Con postman fare le richieste all'indirizzo http://localhost:80/
 
+#Users
 {
         "age": 23,
         "cf": "GLTFRC00A08A785K",
@@ -39,10 +40,29 @@ Con postman fare le richieste all'indirizzo http://localhost:80/
         "surname": "Gulotta"
 }
 
+#Courses
 {
-        "title": "Corso",
-        "subject": "Materia",
-        "description": "Descrizione",
-        "idTeacher": 1,
-        "price": 100
+        "title": "SQL",
+        "description": "Corso sui database e il linguaggio SQL",
+        "subject": "Database SQL",
+        "price": 200,
+        "teacherId": 4
+}
+
+{
+    "description": "Corso sul linguaggio di programmazione C#",
+    "id": 2,
+    "price": 300,
+    "subject": "Linguaggio C#",
+    "teacherId": 4,
+    "title": "C#"
+}
+
+{
+    "description": "Corso sul linguaggio di programmazione Python",
+    "id": 3,
+    "price": 350,
+    "subject": "Linguaggio Python",
+    "teacherId": 4,
+    "title": "Python"
 }

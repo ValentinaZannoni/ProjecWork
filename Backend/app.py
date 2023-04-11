@@ -99,20 +99,7 @@ def delete_user(id):
   db.session.commit()
   return "user deleted"
 
-# Course
-@app.route('/courses', methods=['POST'])
-def create_courses():
-  body = request.get_json()
-  db.session.add(Course(title=body['title'], description=body['description'], subject=body['subject'], price=body['price'], teacherId=body['teacherId']))
-  db.session.commit()
-  return "course created"
-
-@app.route('/courses/<id>', methods=['GET'])
-def get_course(id):
-  course = Course.query.get(id)
-  del course.__dict__['_sa_instance_state']
-  return jsonify(course.__dict__)
-
+# Course get_all
 @app.route('/courses', methods=['GET'])
 def get_courses():
   courses = []
@@ -120,3 +107,34 @@ def get_courses():
     del item.__dict__['_sa_instance_state']
     courses.append(item.__dict__)
   return jsonify(courses)
+
+# Course get_single
+@app.route('/courses/<id>', methods=['GET'])
+def get_course(id):
+  course = Course.query.get(id)
+  del course.__dict__['_sa_instance_state']
+  return jsonify(course.__dict__)
+
+# Course create
+@app.route('/courses', methods=['POST'])
+def create_courses():
+  body = request.get_json()
+  db.session.add(Course(title=body['title'], description=body['description'], subject=body['subject'], price=body['price'], teacherId=body['teacherId']))
+  db.session.commit()
+  return "course created"
+
+# Course update
+@app.route('/courses/<id>', methods=['PUT'])
+def update_course(id):
+  body = request.get_json()
+  db.session.query(Course).filter_by(id=id).update(
+    dict(title=body['title'], description=body['description'], subject=body['subject'], price=body['price'], teacherId=body['teacherId']))
+  db.session.commit()
+  return "course updated"
+
+# Course delete
+@app.route('/courses/<id>', methods=['DELETE'])
+def delete_course(id):
+  db.session.query(Course).filter_by(id=id).delete()
+  db.session.commit()
+  return "course deleted"
