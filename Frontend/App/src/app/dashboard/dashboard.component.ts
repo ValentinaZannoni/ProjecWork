@@ -1,5 +1,5 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import * as Chartist from 'chartist';
 import { Course } from '../models/course';
 
 @Component({
@@ -8,6 +8,7 @@ import { Course } from '../models/course';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  // courses: Course[];
   courses: Course[] = [{
     id: 6487,
     title : "Prova",
@@ -115,8 +116,16 @@ export class DashboardComponent implements OnInit {
       return "rgb(" + r + ", " + g + ", " + b + ")";
     }
   }
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    //this.getCourses();
   }
+
+  getCourses(){
+    this.http.get('http://192.168.33.171:80/courses').subscribe((data: any[]) => {
+      this.courses = data.map(t => Object.assign(new Course(), t));
+    });
+  }
+
 }

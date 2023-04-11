@@ -8,7 +8,7 @@
           <h4 class="card-title">Corsi Seguiti</h4>
         </div>
         <div class="card-body">
-          <div class="table-responsive">
+          <div *ngIf="courses" class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
                 <th>
@@ -18,7 +18,7 @@
                   Materia
                 </th>
                 <th>
-                  Descrizione
+                  Insegnante
                 </th>
                 <th class="text-right">
                   Vedi Dettaglio 
@@ -33,7 +33,9 @@
                     {{course.subject}}
                   </td>
                   <td>
-                    {{course.description}}
+                    <a  routerLinkActive="active" [routerLink]="['/user-profile', true]">
+                      <p>{{course.teacher.surname}} {{course.teacher.name}}</p>
+                    </a>
                   </td>
                   <td class="text-right">
                     <a  routerLinkActive="active" [routerLink]="['/detail-course', course.id]">
