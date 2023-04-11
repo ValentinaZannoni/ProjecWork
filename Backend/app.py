@@ -13,22 +13,11 @@ if __name__ == '__main__':
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 db = SQLAlchemy(app)
 
-class Item(db.Model):
-  id = db.Column(db.Integer, primary_key=True)
-  titolo = db.Column(db.String(80), unique=True, nullable=False)
-  regista = db.Column(db.String(80), unique=True, nullable=False)
-  compagnia = db.Column(db.String(80), unique=True, nullable=False)
-
-  def __init__(self, titolo, regista, compagnia):
-    self.titolo = titolo
-    self.regista = regista
-    self.compagnia = compagnia
-
 class User(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(80), nullable=False)
   surname = db.Column(db.String(80), nullable=False)
-  phoneNumber = db.Column(db.Integer, unique=True, nullable=False)
+  phoneNumber = db.Column(db.BigInteger, unique=True, nullable=False)
   emailAddress = db.Column(db.String(80), unique=True, nullable=False)
   password = db.Column(db.String(80),  nullable=False)
   age = db.Column(db.Integer,  nullable=False)
@@ -70,83 +59,57 @@ class Students(db.Model):
 
 db.create_all()
 
-# User
+# User get_all
+@app.route('/users', methods=['GET'])
+def get_users():
+  users = []
+  for user in db.session.query(User).all():
+    del user.__dict__['_sa_instance_state']
+    users.append(user.__dict__)
+  return jsonify(users)
+
+# User get_single
 @app.route('/users/<id>', methods=['GET'])
 def get_user(id):
   user = User.query.get(id)
   del user.__dict__['_sa_instance_state']
   return jsonify(user.__dict__)
 
-@app.route('/users', methods=['GET'])
-def get_users():
-  items = []
-  for item in db.session.query(User).all():
-    del item.__dict__['_sa_instance_state']
-    items.append(item.__dict__)
-  return jsonify(items)
-
+# User create
 @app.route('/users', methods=['POST'])
 def create_user():
   body = request.get_json()
-  db.session.add(User(body['name'], body['surname'], body['phoneNumber'], body['emailAddress'], body['password'], body['age'], body['role'], body['cf']))
+  db.session.add(User(name=body['name'], surname=body['surname'], phoneNumber=body['phoneNumber'], emailAddress=body['emailAddress'], password=body['password'], age=body['age'], role=body['role'], cf=body['cf']))
   db.session.commit()
   return "user created"
 
+# User update
+@app.route('/users/<id>', methods=['PUT'])
+def update_user(id):
+  body = request.get_json()
+  db.session.query(User).filter_by(id=id).update(
+    dict(name=body['name'], surname=body['surname'], phoneNumber=body['phoneNumber'], emailAddress=body['emailAddress'], password=body['password'], age=body['age'], role=body['role'], cf=body['cf']))
+  db.session.commit()
+  return "user updated"
+
 # Course
+@app.route('/courses', methods=['POST'])
+def create_courses():
+  body = request.get_json()
+  db.session.add(Course(title=body['title'], description=body['description'], subject=body['subject'], price=body['price'], teacherId=body['teacherId']))
+  db.session.commit()
+  return "course created"
+
+@app.route('/courses/<id>', methods=['GET'])
+def get_course(id):
+  course = Course.query.get(id)
+  del course.__dict__['_sa_instance_state']
+  return jsonify(course.__dict__)
+
 @app.route('/courses', methods=['GET'])
 def get_courses():
   courses = []
   for item in db.session.query(Course).all():
     del item.__dict__['_sa_instance_state']
-    course = {
-      "title": item.__dict__['title'],
-      "subject": item.__dict__['subject'],
-      "description": item.__dict__['description'],
-      "teacher": get_user(item.__dict__['idTeacher']),
-      "price": item.__dict__['price'],
-    }
-    courses.append(course)
+    courses.append(item.__dict__)
   return jsonify(courses)
-
-@app.route('/courses', methods=['POST'])
-def create_course():
-  body = request.get_json()
-  db.session.add(Course(body['title'], body['subject'], body['description'], body['idTeacher'], body['price']))
-  db.session.commit()
-  return "course created"
-
-# item
-@app.route('/items/<id>', methods=['GET'])
-def get_item(id):
-  item = Item.query.get(id)
-  del item.__dict__['_sa_instance_state']
-  return jsonify(item.__dict__)
-
-@app.route('/items', methods=['GET'])
-def get_items():
-  items = []
-  for item in db.session.query(Item).all():
-    del item.__dict__['_sa_instance_state']
-    items.append(item.__dict__)
-  return jsonify(items)
-
-@app.route('/items', methods=['POST'])
-def create_item():
-  body = request.get_json()
-  db.session.add(Item(body['titolo'], body['regista'], body['compagnia']))
-  db.session.commit()
-  return "item created"
-
-@app.route('/items/<id>', methods=['PUT'])
-def update_item(id):
-  body = request.get_json()
-  db.session.query(Item).filter_by(id=id).update(
-    dict(titolo=body['titolo'], regista=body['regista'], compagnia=body['compagnia']))
-  db.session.commit()
-  return "item updated"
-
-@app.route('/items/<id>', methods=['DELETE'])
-def delete_item(id):
-  db.session.query(Item).filter_by(id=id).delete()
-  db.session.commit()
-  return "item deleted"
