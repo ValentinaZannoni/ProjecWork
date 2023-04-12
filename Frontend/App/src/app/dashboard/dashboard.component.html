@@ -2,13 +2,13 @@
 </div>
 
 <div class="main-content">
-  <div class="row">
+  <div *ngIf="courses" class="row">
     <div *ngFor="let course of courses" class="col-lg-4 col-md-6">
       <div class="card card-chart">
         <div class="card-header">
           <h5 class="card-category">{{course.subject}}</h5>
           <h4 class="card-title">{{course.title}}</h4>
-          <div ngbDropdown>
+          <!-- <div ngbDropdown>
             <button type="button" class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret" ngbDropdownToggle>
               <i class="now-ui-icons loader_gear"></i>
             </button>
@@ -18,7 +18,7 @@
               <a class="dropdown-item" href="#">Something else here</a>
               <a class="dropdown-item text-danger" href="#">Remove Data</a>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="card-body">
           <div class="chart-area">
@@ -34,6 +34,7 @@
         <div class="card-footer">
           <button type="button" class="btn btn-dark" 
           [routerLink]="['/detail-course', course.id]">Dettagli corso</button>
+          <button type="button" style="margin-left:25px;" class="btn btn-danger" >Iscriviti</button>
         </div>
       </div>
     </div>

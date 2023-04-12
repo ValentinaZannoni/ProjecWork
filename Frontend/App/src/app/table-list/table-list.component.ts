@@ -19,7 +19,17 @@ export class TableListComponent implements OnInit {
     subject : "Programmazione",
     price: null,
     description : "Questo è un bel corso",
-    teacher : null,
+    teacher : {
+      id: 72387,
+      name: "Valentina",
+      surname: "Zannoni",
+      phoneNumber: "3394873635",
+      age: "10",
+      role: "S",     // T = teacher , S = Student
+      cf: "ZNNVNT01T52E730L",
+      emailAddress: "subit@io.it",
+      password: null
+    },
     students: null,
   },
   {
@@ -28,23 +38,34 @@ export class TableListComponent implements OnInit {
     subject : "Matematica",
     price: null,
     description : "Questo è un brutto corso",
-    teacher : null,
+    teacher : {
+      id:345,
+      name: "Maria",
+      surname: "Gianca",
+      phoneNumber: "6453738635",
+      age: "40",
+      role: null,   // T = teacher , S = Student
+      cf: "DRTVTH65T56N764G",
+      emailAddress: "emailprof@gmail.com",
+      password: null
+    },
     students: null,
   }
 ];
+  // courses: Course[]
 
   constructor(public auth: AuthService, private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit() {
-   this.getCourses()
+  //  this.getCourses()
    if(this.auth.isLogged) console.log("sono loggatoooo")
   }
 
   getCourses(){
-    // this.http.get('http://192.168.33.171:80/courses').subscribe((data: any[]) => {
-    //   const users = data.map(user => Object.assign(new Course(), user));
+    this.http.get('http://192.168.33.171:80/courses').subscribe((data: any[]) => {
+      this.courses = data.map(user => Object.assign(new Course(), user));
 
-    //   console.log(users);
-    // });
+      console.log(this.courses);
+    });
   }
 }

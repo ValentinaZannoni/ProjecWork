@@ -1,10 +1,4 @@
 export class User {
-    // constructor(jsonStr: string) {
-    //     let jsonObj = JSON.parse(jsonStr);
-    //     for (let prop in jsonObj) {
-    //         this[prop] = jsonObj[prop];
-    //     }
-    // }
     constructor(){
 
     }
