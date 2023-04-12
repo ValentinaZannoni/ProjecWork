@@ -58,7 +58,7 @@ export class DetailCourseComponent implements OnInit {
       positionClass: 'toast-' + 'top' + '-' +  'center'
     });
 
-    this.router.navigate(['/user-profile', 'T']);
+    this.router.navigate(['/table-list']);
   }
 
 
