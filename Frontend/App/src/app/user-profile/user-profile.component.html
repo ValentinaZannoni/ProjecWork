@@ -5,8 +5,7 @@
     <div class="col-md-8">
       <div class="card">
         <div class="card-header">
-          <h5 class="title" *ngIf="!isTeacher">Edit Profile</h5>
-          <h5 class="title" *ngIf="isTeacher">Teacher Profile</h5>
+          <h5 class="title">{{isTeacher == 'T'? 'Teacher Profile' : 'Edit Profile'}}</h5>
         </div>
         <div class="card-body">
           <form>
@@ -14,13 +13,13 @@
               <div class="col-md-6 pr-1">
                 <div class="form-group">
                   <label>Cognome</label>
-                  <input type="text" name="Cognome" [disabled]="isTeacher" class="form-control" placeholder="Cognome" [(ngModel)]="user.surname">
+                  <input type="text" name="Cognome" [disabled]="isTeacher == 'T'" class="form-control" placeholder="Cognome" [(ngModel)]="user.surname">
                 </div>
               </div>
               <div class="col-md-6 px-1">
                 <div class="form-group">
                   <label>Nome</label>
-                  <input type="text" name="Nome" [disabled]="isTeacher" class="form-control" placeholder="Nome" [(ngModel)]="user.name">
+                  <input type="text" name="Nome" [disabled]="isTeacher == 'T'" class="form-control" placeholder="Nome" [(ngModel)]="user.name">
                 </div>
               </div>
             </div>
@@ -28,13 +27,13 @@
               <div class="col-md-6 pr-1">
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input name="email" [(ngModel)]="user.emailAddress" [disabled]="isTeacher" type="email" class="form-control" placeholder="Email"> 
+                  <input name="email" [(ngModel)]="user.emailAddress" [disabled]="isTeacher == 'T'" type="email" class="form-control" placeholder="Email"> 
                 </div>
               </div>
               <div class="col-md-6 px-1">
                 <div class="form-group">
                   <label>Cellulare</label>
-                  <input name="Cellulare" type="text" class="form-control" [disabled]="isTeacher" placeholder="Cellulare" [(ngModel)]="user.phoneNumber">
+                  <input name="Cellulare" type="text" class="form-control" [disabled]="isTeacher == 'T'" placeholder="Cellulare" [(ngModel)]="user.phoneNumber">
                 </div>
               </div>
             </div>
@@ -42,20 +41,24 @@
               <div class="col-md-6 pr-1">
                 <div class="form-group">
                   <label>Età</label>
-                  <input type="text" name="eta" class="form-control" [disabled]="isTeacher" placeholder="Last Name"  [(ngModel)]="user.age">
+                  <input type="text" name="eta" class="form-control" [disabled]="isTeacher == 'T'" placeholder="Last Name"  [(ngModel)]="user.age">
                 </div>
               </div>
               <div class="col-md-6 px-1">
                 <div class="form-group">
                   <label>Codice Fiscale</label>
-                  <input type="text" name="CodiceFiscale" [disabled]="isTeacher" class="form-control" placeholder="Codice Fiscale"  [(ngModel)]="user.cf">
+                  <input type="text" name="CodiceFiscale" [disabled]="isTeacher == 'T'" class="form-control" placeholder="Codice Fiscale"  [(ngModel)]="user.cf">
                 </div>
               </div>
             </div>
           </form>
-          <button *ngIf="isTeacher == false" type="button" class="btn btn-dark" (click)="updateData()">Salva</button>
+          <button *ngIf="isTeacher == 'S'" type="button" class="btn btn-dark" (click)="updateData()">Salva</button>
         </div>
-        <div *ngIf="isTeacher" style="padding:20px;">
+        <a *ngIf="isTeacher == 'T'" style="margin-top: 20px; margin-left: 20px;" (click)="tableCoursesVisible = !tableCoursesVisible"> Mostra Altri corsi del docente 
+          <i [className]="tableCoursesVisible ? 'now-ui-icons arrows-1_minimal-down' : 'now-ui-icons arrows-1_minimal-up'"></i>
+        </a>
+
+        <div *ngIf="isTeacher == 'T' && tableCoursesVisible" style="padding:20px;">
           <div *ngIf="coursesTeacher" class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
@@ -113,21 +116,21 @@
             </p>
           </div>
           <div style="display:flex; align-items:center">
-            <button *ngIf="isTeacher == false" (click)="logout()" class="btn btn-dark">Logout</button>
+            <button *ngIf="isTeacher == 'S'" (click)="logout()" class="btn btn-dark">Logout</button>
           </div>
         </div>
         <hr>
-        <div class="button-container">
+        <!-- <div class="button-container">
           <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
             <i class="fab fa-facebook-f"></i>
           </button>
-          <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
+          <button class="btn btn-neutral btn-icon btn-round btn-lg">
             <i class="fab fa-twitter"></i>
           </button>
           <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
             <i class="fab fa-google-plus-g"></i>
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
     

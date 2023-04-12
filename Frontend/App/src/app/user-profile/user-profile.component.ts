@@ -5,6 +5,7 @@ import { AuthService } from '../layouts/admin-layout/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute } from '@angular/router';
 import { Course } from '../models';
+import { CommonModule, } from '@angular/common';
 
 @Component({
   selector: 'app-user-profile',
@@ -27,7 +28,6 @@ export class UserProfileComponent implements OnInit {
     password: null
   }
 
-  isTeacher:boolean = false;
 
   coursesTeacher: Course[] = [{
     id: 6487,
@@ -48,9 +48,12 @@ export class UserProfileComponent implements OnInit {
     students: null,
   }
 ];
+
+isTeacher:string;
+tableCoursesVisible: boolean = false;
+
   ngOnInit() {
     this.route.params.subscribe((params) => this.isTeacher = params.isTeacher);
-    console.log("aaaaaaaaaaaaaaaaaaaaa", this.isTeacher)
     // this.getData();
   }
 
