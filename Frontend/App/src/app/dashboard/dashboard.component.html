@@ -23,18 +23,18 @@
         <div class="card-body">
           <div class="chart-area">
             <div class="text-price">
-              {{course.price}}
+              € {{course.price}}
             </div>
             <div class="stats text-description">
-              {{course.description}}
+              {{course.description.length > 35 ? course.description.substring(0, 35) + "..." : course.description}}
             </div>
             
           </div>
         </div>
         <div class="card-footer">
-          <button type="button" class="btn btn-dark" 
+          <button type="button" class="blue-button"
           [routerLink]="['/detail-course', course.id]">Dettagli corso</button>
-          <button type="button" style="margin-left:25px;" class="btn btn-danger" >Iscriviti</button>
+          <button type="button"class="grey-button">Iscriviti</button>
         </div>
       </div>
     </div>

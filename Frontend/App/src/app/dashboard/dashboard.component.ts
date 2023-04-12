@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
     title : "Prova",
     subject : "Programmazione",
     price: null,
-    description : "Questo è un bel corso",
+    description : "Questo è un bel corso jshfkasfjkshedfhjsbdc djcksdkjcbsjkcd sdjkcbskdjfbcsjkcbs",
     teacher : null,
     students: null,
   },
@@ -116,6 +116,7 @@ export class DashboardComponent implements OnInit {
       return "rgb(" + r + ", " + g + ", " + b + ")";
     }
   }
+
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
