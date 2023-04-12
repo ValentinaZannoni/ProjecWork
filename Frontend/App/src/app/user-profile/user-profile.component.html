@@ -52,7 +52,7 @@
               </div>
             </div>
           </form>
-          <button *ngIf="isTeacher == 'S'" type="button" class="btn btn-dark" (click)="updateData()">Salva</button>
+          <button *ngIf="isTeacher == 'S'" type="button" class="blue-button" (click)="updateData()">Salva</button>
         </div>
         <a *ngIf="isTeacher == 'T'" style="margin-top: 20px; margin-left: 20px;" (click)="tableCoursesVisible = !tableCoursesVisible"> Mostra Altri corsi del docente 
           <i [className]="tableCoursesVisible ? 'now-ui-icons arrows-1_minimal-down' : 'now-ui-icons arrows-1_minimal-up'"></i>
@@ -116,7 +116,7 @@
             </p>
           </div>
           <div style="display:flex; align-items:center">
-            <button *ngIf="isTeacher == 'S'" (click)="logout()" class="btn btn-dark">Logout</button>
+            <button *ngIf="isTeacher == 'S'" (click)="logout()" type="button" class="blue-button">Logout</button>
           </div>
         </div>
         <hr>
