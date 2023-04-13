@@ -12,6 +12,10 @@
   color: rgb(136, 136, 255);
 }
 
+.blue-text a {
+  color: rgb(136, 136, 255);
+}
+
 .card-user {
   height: 340px;
 }
