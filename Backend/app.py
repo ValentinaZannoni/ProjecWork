@@ -88,7 +88,9 @@ def create_user():
   body = request.get_json()
   db.session.add(User(name=body['name'], surname=body['surname'], phoneNumber=body['phoneNumber'], emailAddress=body['emailAddress'], password=body['password'], age=body['age'], role=body['role'], cf=body['cf']))
   db.session.commit()
-  return "user created"
+  return {
+          "response": "user created"
+        }
 
 # User update
 @app.route('/users/<id>', methods=['PUT'])
@@ -97,7 +99,10 @@ def update_user(id):
   db.session.query(User).filter_by(id=id).update(
     dict(name=body['name'], surname=body['surname'], phoneNumber=body['phoneNumber'], emailAddress=body['emailAddress'], password=body['password'], age=body['age'], role=body['role'], cf=body['cf']))
   db.session.commit()
-  return 0
+  return {
+          "response": "user modified"
+        }
+
 
 # User delete
 @app.route('/users/delete/<email>', methods=['DELETE'])
