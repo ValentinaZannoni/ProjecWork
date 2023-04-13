@@ -24,6 +24,7 @@
   border: none;
   border-radius: 5px;
   float: left;
+  margin-bottom: 10px;
 }
 
 .grey-button {
@@ -33,4 +34,5 @@
   border: none;
   border-radius: 5px;
   float: right;
+  margin-bottom: 10px;
 }
