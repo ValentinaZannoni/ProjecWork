@@ -65,11 +65,11 @@ idTeacher: string;
     }
   }
 
-  getUser(){
-    this.http.get('http://192.168.0.14:80/users/mail/' + this.auth.email).subscribe((data: any) => {
-      this.user = Object.assign(new User(), data);
-    });  
-  }
+   getUser(){
+     this.http.get('http://192.168.0.14:80/users/mail/' + this.auth.email).subscribe((data: any) => {
+       this.user = Object.assign(new User(), data);
+     });  
+   }
 
   getTeacher(){
     this.http.get('http://192.168.0.14:80/users/' + this.idTeacher).subscribe((data: any) => {

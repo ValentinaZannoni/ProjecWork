@@ -10,7 +10,7 @@
         <div class="card-body">
           <div *ngIf="courses" class="table-responsive">
             <table class="table">
-              <thead class=" text-primary">
+              <thead class="blue-text">
                 <th>
                   Titolo
                 </th>
@@ -18,7 +18,7 @@
                   Materia
                 </th>
                 <th>
-                  Insegnante
+                  Descrizione
                 </th>
                 <th class="text-right">
                   Vedi Dettaglio 
@@ -32,13 +32,11 @@
                   <td>
                     {{course.subject}}
                   </td>
-                  <!-- <td>
-                    <a  routerLinkActive="active" [routerLink]="['/user-profile', 'T', course.teacher.id]">
-                      <p>{{course.teacher.surname}} {{course.teacher.name}}</p>
-                    </a>
-                  </td>-->
+                  <td>
+                    {{course.description}}
+                  </td>
                   <td class="text-right">
-                    <a  routerLinkActive="active" [routerLink]="['/detail-course', course.id]">
+                    <a class="blue-text" routerLinkActive="active" [routerLink]="['/detail-course', course.id]">
                       <p>{{course.id}}</p>
                   </a>
                   </td> 

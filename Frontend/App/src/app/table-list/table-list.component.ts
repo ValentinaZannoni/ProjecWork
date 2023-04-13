@@ -69,9 +69,3 @@ export class TableListComponent implements OnInit {
     });
   }
 }
-
-export class Res {
-  constructor(){
-  }
-  response: string;
-}
