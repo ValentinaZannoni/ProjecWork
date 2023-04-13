@@ -100,11 +100,13 @@ def update_user(id):
   return 0
 
 # User delete
-@app.route('/users/<id>', methods=['DELETE'])
-def delete_user(id):
-  db.session.query(User).filter_by(id=id).delete()
+@app.route('/users/delete/<email>', methods=['DELETE'])
+def delete_user(email):
+  db.session.query(User).filter_by(emailAddress=email).delete()
   db.session.commit()
-  return "user deleted"
+  return {
+          "response": "User deleted"
+        }
 
 # Course get_all
 @app.route('/courses', methods=['GET'])
@@ -113,6 +115,15 @@ def get_courses():
   for item in db.session.query(Course).all():
     del item.__dict__['_sa_instance_state']
     courses.append(item.__dict__)
+  return jsonify(courses)
+
+# Course get_all_byTeacherId
+@app.route('/courses/teacher/<teacherId>', methods=['GET'])
+def get_courses_byTeacherId(teacherId):
+  courses = []
+  for course in db.session.query(Course).filter_by(teacherId = teacherId):
+    del course.__dict__['_sa_instance_state']
+    courses.append(course.__dict__)
   return jsonify(courses)
 
 # Course get_single
@@ -151,6 +162,10 @@ def delete_course(id):
 def check_password(emailAddress, password):
   user = User.query.filter_by(emailAddress=emailAddress, password=password).first()
   if user:
-        return 'User exists in the database!'
+        return {
+          "response": "User exist"
+        }
   else:
-        return 'User does not exist in the database.'
+        return {
+          "response": "User does not exist"
+        }
