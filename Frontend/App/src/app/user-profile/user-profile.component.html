@@ -109,17 +109,17 @@
 
             <a href="#">
               <img class="avatar border-gray" src="../assets/img/mike.jpg" alt="...">
-              <h5 class="title">{{user.name}} {{user.surname}}</h5>
+              <h5 class="title blue-text">{{user.name}} {{user.surname}}</h5>
             </a>
             <p class="description">
               {{user.emailAddress}}
             </p>
           </div>
-          <div style="display:flex; align-items:center">
+          <div>
             <button *ngIf="isTeacher == 'S'" (click)="logout()" type="button" class="blue-button">Logout</button>
           </div>
         </div>
-        <hr>
+        
         <!-- <div class="button-container">
           <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
             <i class="fab fa-facebook-f"></i>

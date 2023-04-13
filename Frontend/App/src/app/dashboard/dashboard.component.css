@@ -23,7 +23,7 @@
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  text-align: left;
+  float: left;
 }
 
 .grey-button {
@@ -32,5 +32,5 @@
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  text-align: right;
+  float: right;
 }
