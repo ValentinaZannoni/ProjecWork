@@ -75,6 +75,13 @@ def get_user(id):
   del user.__dict__['_sa_instance_state']
   return jsonify(user.__dict__)
 
+# User get_single_byMail
+@app.route('/users/mail/<email>', methods=['GET'])
+def get_user_byMail(email):
+  user = db.session.query(User).filter_by(emailAddress=email).first()
+  del user.__dict__['_sa_instance_state']
+  return jsonify(user.__dict__)
+
 # User create
 @app.route('/users', methods=['POST'])
 def create_user():
@@ -90,7 +97,7 @@ def update_user(id):
   db.session.query(User).filter_by(id=id).update(
     dict(name=body['name'], surname=body['surname'], phoneNumber=body['phoneNumber'], emailAddress=body['emailAddress'], password=body['password'], age=body['age'], role=body['role'], cf=body['cf']))
   db.session.commit()
-  return "user updated"
+  return 0
 
 # User delete
 @app.route('/users/<id>', methods=['DELETE'])

@@ -98,7 +98,7 @@ export class AdminLayoutComponent implements OnInit {
 
   addAccount(){
     console.log("andaleeeeeeeee", this.auth);
-    this.http.post("http://192.168.0.80:80/users", this.auth).subscribe(data => {
+    this.http.post("http://192.168.0.14:80/users", this.auth).subscribe(data => {
         console.log("andale", data);
         this.auth.isLogged = true;
       });

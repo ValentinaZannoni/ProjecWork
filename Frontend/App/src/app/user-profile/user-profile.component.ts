@@ -16,17 +16,18 @@ export class UserProfileComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private http: HttpClient, public auth : AuthService, private toastr: ToastrService) { }
 
-  user: User = {
-    id: 72387,
-    name: "Valentina",
-    surname: "Zannoni",
-    phoneNumber: "3394873635",
-    age: "10",
-    role: "S",     // T = teacher , S = Student
-    cf: "ZNNVNT01T52E730L",
-    emailAddress: "subit@io.it",
-    password: null
-  }
+  user:User;
+  // user: User = {
+  //   id: 72387,
+  //   name: "Valentina",
+  //   surname: "Zannoni",
+  //   phoneNumber: "3394873635",
+  //   age: "10",
+  //   role: "S",     // T = teacher , S = Student
+  //   cf: "ZNNVNT01T52E730L",
+  //   emailAddress: "subit@io.it",
+  //   password: null
+  // }
 
 
   coursesTeacher: Course[] = [{
@@ -55,13 +56,13 @@ idUser: string;
   ngOnInit() {
     this.route.params.subscribe((params) => this.isTeacher = params.isTeacher);
     this.route.params.subscribe((params) => this.idUser = params.idUser);
-    // this.getData();
+    this.getUser();
     
   }
 
   getUser(){
-    this.http.get('http://192.168.33.171:80/user/' + this.idUser).subscribe((data: any) => {
-      this.user = data.map(t => Object.assign(new User(), t));
+    this.http.get('http://192.168.0.14:80/users/mail/' + this.auth.email).subscribe((data: any) => {
+      this.user = Object.assign(new User(), data);
     });  
   }
 
@@ -70,18 +71,18 @@ idUser: string;
   }
 
   updateData(){
-    this.http.put("", this.user).subscribe(data => {
+    this.http.put("http://192.168.0.14:80/users/" + this.user.id, this.user).subscribe(data => {
       console.log(data);
-      this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span> Salvataggio effettuato con successo', '', {
-        timeOut: 8000,
-        closeButton: true,
-        enableHtml: true,
-        toastClass: "alert alert-success alert-with-icon",
-        positionClass: 'toast-' + 'top' + '-' +  'center'
-      });
     });
-   
+    this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span> Salvataggio effettuato con successo', '', {
+      timeOut: 8000,
+      closeButton: true,
+      enableHtml: true,
+      toastClass: "alert alert-success alert-with-icon",
+      positionClass: 'toast-' + 'top' + '-' +  'center'
+    });
     return true;
+    
   }
 
 
