@@ -9,6 +9,7 @@ import PerfectScrollbar from 'perfect-scrollbar';
 import { AuthService } from './auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { User } from './models';
 
 @Component({
   selector: 'app-admin-layout',
@@ -96,9 +97,18 @@ export class AdminLayoutComponent implements OnInit {
     console.log(this.auth.isLogged? "sono loggato" : "non sono loggato")
   }
 
+  user: User = new User();
   addAccount(){
-    console.log("andaleeeeeeeee", this.auth);
-    this.http.post("http://192.168.0.80:80/users", this.auth).subscribe(data => {
+    this.user.name = this.auth.name;
+    this.user.surname = this.auth.surname;
+    this.user.phoneNumber = this.auth.phoneNumber;
+    this.user.age = this.auth.age;
+    this.user.emailAddress = this.auth.email;
+    this.user.password = this.auth.password;
+    this.user.role = this.auth.role;
+    this.user.cf = this.auth.cf;
+
+    this.http.post("http://192.168.0.80:80/users", this.user).subscribe(data => {
         console.log("andale", data);
         this.auth.isLogged = true;
       });

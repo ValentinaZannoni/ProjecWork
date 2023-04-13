@@ -28,7 +28,6 @@ export class UserProfileComponent implements OnInit {
     password: null
   }
 
-
   coursesTeacher: Course[] = [{
     id: 6487,
     title : "Prova",
@@ -55,12 +54,13 @@ idUser: string;
   ngOnInit() {
     this.route.params.subscribe((params) => this.isTeacher = params.isTeacher);
     this.route.params.subscribe((params) => this.idUser = params.idUser);
-    // this.getData();
+    this.getUser();
+    console.log("auth email", this.auth.email)
     
   }
 
   getUser(){
-    this.http.get('http://192.168.33.171:80/user/' + this.idUser).subscribe((data: any) => {
+    this.http.get('http://192.168.33.171:80/users/' + this.auth.email).subscribe((data: any) => {
       this.user = data.map(t => Object.assign(new User(), t));
     });  
   }

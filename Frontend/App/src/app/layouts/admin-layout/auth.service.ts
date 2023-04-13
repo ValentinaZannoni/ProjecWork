@@ -9,8 +9,9 @@ export class AuthService {
   constructor() { }
 
   public name: string;
+  public age: number;
   public surname: string;
-  public phoneNumber: string;
+  public phoneNumber: number;
   public role: string;
   public cf: string;
   public email: string;

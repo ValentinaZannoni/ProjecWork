@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Course } from './models';
+import { Course } from '../models';
 
 @Component({
   selector: 'detail-course',
@@ -32,8 +32,8 @@ export class DetailCourseComponent implements OnInit {
       id:345,
       name: "Maria",
       surname: "Gianca",
-      phoneNumber: "6453738635",
-      age: "40",
+      phoneNumber: 6453738635,
+      age: 40,
       role: null,   // T = teacher , S = Student
       cf: "DRTVTH65T56N764G",
       emailAddress: "emailprof@gmail.com",
@@ -46,6 +46,7 @@ export class DetailCourseComponent implements OnInit {
   getData(){
     this.http.get('http://192.168.33.171:80/courses/' + this.courseid).subscribe((data: any) => {
       this.course = data.map(t => Object.assign(new Course(), t));
+      this.course = Object.assign(new Course(), data);
     });
   }
 
