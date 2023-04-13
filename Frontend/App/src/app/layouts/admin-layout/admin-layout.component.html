@@ -1,6 +1,6 @@
 <div *ngIf="!auth.isLogged && !registering">
   <div class="container">
-    <div class="logo-img-big">
+    <div class="logo">
       <img src="./assets/img/logo.png"/>
     </div>
     <div class="card">
@@ -36,7 +36,7 @@
       <div class="links">
         <a (click)="registering = !registering">
          
-          <p>Registrati</p>
+          <p>Non hai un account?</p>
       </a>
       </div>
     </div>
@@ -46,7 +46,7 @@
   <div class="container">
     <div class="logo">
       <img
-        src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5be01d787b5e5b0001ebb6bb/0x0.png"
+        src="./assets/img/logo.png"
       />
     </div>
     <div class="card">
@@ -137,11 +137,11 @@
           class="blue-button"
           (click)="registerForm.valid && addAccount()"
         >
-          Submit
+          Registrati
         </button>
       </form>
       <div class="links">
-        <a (click)="registering = !registering">Already have an account?</a>
+        <a (click)="registering = !registering">Hai già un account?</a>
       </div>
     </div>
   </div>
