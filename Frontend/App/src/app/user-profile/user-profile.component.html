@@ -61,7 +61,7 @@
         <div *ngIf="isTeacher == 'T' && tableCoursesVisible" style="padding:20px;">
           <div *ngIf="coursesTeacher" class="table-responsive">
             <table class="table">
-              <thead class=" text-primary">
+              <thead class="blue-text">
                 <th>
                   Titolo
                 </th>
@@ -87,7 +87,7 @@
                     {{course.description}}
                   </td>
                   <td class="text-right">
-                    <a  routerLinkActive="active" [routerLink]="['/detail-course', course.id]">
+                    <a routerLinkActive="active" [routerLink]="['/detail-course', course.id]" class="blue-text">
                       <p>{{course.id}}</p>
                   </a>
                   </td>
@@ -119,7 +119,7 @@
             <button *ngIf="isTeacher == 'S'" (click)="logout()" type="button" class="blue-button">Logout</button>
           </div>
           <div style="margin-top:15px;">
-            <button *ngIf="isTeacher == 'S'" (click)="deleteAccount()" type="button" class="blue-button">Elimina Account</button>
+            <button *ngIf="isTeacher == 'S'" (click)="deleteAccount()" type="button" class="red-button">Elimina Account</button>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ docker exec -it db psql -U postgres
 Con postman fare le richieste all'indirizzo http://localhost:80/
 
 #Users
-{
+    {
         "age": 23,
         "cf": "GLTFRC00A08A785K",
         "emailAddress": "federico.gulotta.studio@fitstic-edu.com",
@@ -12,33 +12,53 @@ Con postman fare le richieste all'indirizzo http://localhost:80/
         "name": "Federico",
         "password": "Passw0rd!",
         "phoneNumber": 3664294909,
-        "role": "s",
+        "role": "S",
         "surname": "Gulotta"
-}
-
-{
-        "age": 55,
-        "cf": "MNGBBR68D48A785Z",
-        "emailAddress": "barbara.mingardi.studio@fitstic-edu.com",
+    },
+    {
+        "age": 23,
+        "cf": "BTTLCU00A08A785K",
+        "emailAddress": "luca.bottoni.studio@fitstic-edu.com",
         "id": 2,
-        "name": "Barbara",
+        "name": "Luca",
         "password": "Passw0rd!",
-        "phoneNumber": 3343932783,
-        "role": "s",
-        "surname": "Mingardi"
-}
-
-{
-        "age": 20,
-        "cf": "GLTNDR02E16A785N",
-        "emailAddress": "andrea.gulotta.studio@fitstic-edu.com",
+        "phoneNumber": 3456084130,
+        "role": "S",
+        "surname": "Bottoni"
+    },
+    {
+        "age": 23,
+        "cf": "VLNZNN00A08A785K",
+        "emailAddress": "valentina.zannoni.studio@fitstic-edu.com",
         "id": 3,
-        "name": "Andrea",
+        "name": "Valentina",
         "password": "Passw0rd!",
-        "phoneNumber": 3703226229,
-        "role": "t",
-        "surname": "Gulotta"
-}
+        "phoneNumber": 3337739329,
+        "role": "S",
+        "surname": "Zannoni"
+    },
+    {
+        "age": 23,
+        "cf": "LSSDTL00A08A785K",
+        "emailAddress": "alessandro.dastolfo.studio@fitstic-edu.com",
+        "id": 4,
+        "name": "Alessandro",
+        "password": "Passw0rd!",
+        "phoneNumber": 3339239744,
+        "role": "T",
+        "surname": "D'astolfo"
+    },
+    {
+        "age": 23,
+        "cf": "LRRGVN00A08A785K",
+        "emailAddress": "lorraine.garavini.studio@fitstic-edu.com",
+        "id": 5,
+        "name": "Lorraine",
+        "password": "Passw0rd!",
+        "phoneNumber": 3426608612,
+        "role": "T",
+        "surname": "Garavini"
+    }
 
 #Courses
 {
@@ -61,8 +81,17 @@ Con postman fare le richieste all'indirizzo http://localhost:80/
 {
     "description": "Corso sul linguaggio di programmazione Python",
     "id": 3,
-    "price": 350,
+    "price": 400,
     "subject": "Linguaggio Python",
-    "teacherId": 4,
+    "teacherId": 5,
     "title": "Python"
+}
+
+{
+    "description": "Corso sul linguaggio di programmazione Java",
+    "id": 3,
+    "price": 500,
+    "subject": "Linguaggio Java",
+    "teacherId": 5,
+    "title": "Java"
 }

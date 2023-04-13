@@ -1,0 +1,16 @@
+.blue-button {
+    background-color: rgb(136, 136, 255);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    float: right;
+  }
+  
+  .blue-text {
+    color: rgb(136, 136, 255);
+  }
+
+  .blue-text a {
+    color: rgb(136, 136, 255);
+  }

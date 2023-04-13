@@ -49,9 +49,9 @@ class Course(db.Model):
     self.teacherId = teacherId
     self.price = price
 
-class Students(db.Model):
+class Classmates(db.Model):
   idCourse = db.Column(db.Integer, primary_key=True)
-  idStudents = db.Column(db.Integer)
+  idStudents = db.Column(db.ARRAY(db.Integer), default=[])
 
   def __init__(self, idCourse, idStudents):
     self.idCourse = idCourse
@@ -103,7 +103,6 @@ def update_user(id):
           "response": "user modified"
         }
 
-
 # User delete
 @app.route('/users/delete/<email>', methods=['DELETE'])
 def delete_user(email):
@@ -127,8 +126,34 @@ def get_courses():
 def get_courses_byTeacherId(teacherId):
   courses = []
   for course in db.session.query(Course).filter_by(teacherId = teacherId):
-    del course.__dict__['_sa_instance_state']
+    del course.__dict__['_sa_instance_state'] 
     courses.append(course.__dict__)
+  return jsonify(courses)
+
+# Course get_all_subscribed
+@app.route('/courses/subscribed/<studentId>', methods=['GET'])
+def get_all_subscribed(studentId):
+  courses = []
+  for s in db.session.query(Classmates).all():
+    del s.__dict__['_sa_instance_state']
+    if int(studentId) in s.__dict__['idStudents']:
+      idC = s.__dict__['idCourse']
+      course = Course.query.get(idC)
+      del course.__dict__['_sa_instance_state']
+      courses.append(course.__dict__)
+  return jsonify(courses)
+
+# Course get_all_not_subscribed
+@app.route('/courses/not_subscribed/<studentId>', methods=['GET'])
+def get_all_not_subscribed(studentId):
+  courses = []
+  for s in db.session.query(Classmates).all():
+    del s.__dict__['_sa_instance_state']
+    if int(studentId) not in s.__dict__['idStudents']:
+      idC = s.__dict__['idCourse']
+      course = Course.query.get(idC)
+      del course.__dict__['_sa_instance_state']
+      courses.append(course.__dict__)
   return jsonify(courses)
 
 # Course get_single
@@ -174,3 +199,63 @@ def check_password(emailAddress, password):
         return {
           "response": "User does not exist"
         }
+
+# Course and classmates create
+@app.route('/courses-classmates', methods=['POST'])
+def create_courses_classmates():
+  body = request.get_json()
+  db.session.add(Course(title=body['title'], description=body['description'], subject=body['subject'], price=body['price'], teacherId=body['teacherId']))
+  db.session.commit()
+  c = db.session.query(Course).order_by(Course.id.desc()).first()
+  db.session.add(Classmates(idCourse = c.__dict__['id'], idStudents = []))
+  db.session.commit()
+  return "course and classmates created"
+
+# Course and classmates delete
+@app.route('/courses-classmates/<id>', methods=['DELETE'])
+def delete_courses_classmates(id):
+  db.session.query(Course).filter_by(id=id).delete()
+  db.session.commit()
+  db.session.query(Classmates).filter_by(idCourse=id).delete()
+  db.session.commit()
+  return "course and classmates deleted"
+
+# classmates get_all
+@app.route('/classmates', methods=['GET'])
+def get_classmates():
+  classmates = []
+  for s in db.session.query(Classmates).all():
+    del s.__dict__['_sa_instance_state']
+    classmates.append(s.__dict__)
+  return jsonify(classmates)
+
+# classmates get_single
+@app.route('/classmates/<idCourse>', methods=['GET'])
+def get_student(idCourse):
+  classmates = Classmates.query.get(idCourse)
+  del classmates.__dict__['_sa_instance_state']
+  return jsonify(classmates.__dict__)
+
+# classmates create
+@app.route('/classmates', methods=['POST'])
+def create_classmates():
+  body = request.get_json()
+  db.session.add(Classmates(idCourse=body['idCourse'], idStudents=body['idStudents']))
+  db.session.commit()
+  return "item created"
+
+# classmates update
+@app.route('/classmates/<idCourse>', methods=['PUT'])
+def update_classmates(idCourse):
+  body = request.get_json()
+  db.session.query(Classmates).filter_by(idCourse=idCourse).update(
+    dict(idStudents = body['idStudents']))
+  db.session.commit()
+  return "classmates updated"
+
+# classmates delete
+@app.route('/classmates/<idCourse>', methods=['DELETE'])
+def delete_classmates(idCourse):
+  db.session.query(Classmates).filter_by(idCourse=idCourse).delete()
+  db.session.commit()
+  return "classmates deleted"
