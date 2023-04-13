@@ -140,13 +140,10 @@ def delete_course(id):
   return "course deleted"
 
 # Authenticate
-@app.route('/auth/<password>', methods=['GET'])
-def check_password(password):
-    conn = db.engine.raw_connection()
-    cursor = conn.cursor()
-    cursor.execute("SELECT COUNT(*) FROM user WHERE password = %s", (password,))
-    result = cursor.fetchone()
-    if result[0] > 0:
-        return jsonify({"message": "Password exists in database."}), 200
-    else:
-        return jsonify({"message": "Password does not exist in database."}), 404
+@app.route('/auth/<emailAddress>/<password>', methods=['GET'])
+def check_password(emailAddress, password):
+  user = User.query.filter_by(emailAddress=emailAddress, password=password).first()
+  if user:
+        return 'User exists in the database!'
+  else:
+        return 'User does not exist in the database.'
