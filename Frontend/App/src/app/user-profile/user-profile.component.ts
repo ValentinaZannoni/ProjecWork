@@ -89,15 +89,26 @@ idTeacher: string;
 
   updateData(){
     this.http.put("http://192.168.0.14:80/users/" + this.user.id, this.user).subscribe(data => {
-      console.log(data);
+      this.res = Object.assign(new Res(), data);
+      if(this.res.response == "user modified"){
+        this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span> Salvataggio effettuato con successo', '', {
+          timeOut: 8000,
+          closeButton: true,
+          enableHtml: true,
+          toastClass: "alert alert-success alert-with-icon",
+          positionClass: 'toast-' + 'top' + '-' +  'center'
+        });
+      } else {
+        this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span> Errori nella modifica', '', {
+          timeOut: 8000,
+          closeButton: true,
+          enableHtml: true,
+          toastClass: "alert alert-danger alert-with-icon",
+          positionClass: 'toast-' + 'top' + '-' +  'center'
+        });
+      }
     });
-    this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span> Salvataggio effettuato con successo', '', {
-      timeOut: 8000,
-      closeButton: true,
-      enableHtml: true,
-      toastClass: "alert alert-success alert-with-icon",
-      positionClass: 'toast-' + 'top' + '-' +  'center'
-    });
+    
     return true;
     
   }

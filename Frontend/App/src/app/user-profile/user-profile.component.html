@@ -102,7 +102,7 @@
     <div class="col-md-4">
       <div class="card card-user">
         <div class="image">
-          <!-- <img src="../assets/img/bg5.jpg" alt="..."> -->
+           <img src="../assets/img/bg5.jpg" alt="..."> 
         </div>
         <div class="card-body">
           <div class="author">
@@ -118,22 +118,10 @@
           <div>
             <button *ngIf="isTeacher == 'S'" (click)="logout()" type="button" class="blue-button">Logout</button>
           </div>
-          <div style="display:flex; align-items:center">
+          <div style="margin-top:15px;">
             <button *ngIf="isTeacher == 'S'" (click)="deleteAccount()" type="button" class="blue-button">Elimina Account</button>
           </div>
         </div>
-        
-        <!-- <div class="button-container">
-          <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-            <i class="fab fa-facebook-f"></i>
-          </button>
-          <button class="btn btn-neutral btn-icon btn-round btn-lg">
-            <i class="fab fa-twitter"></i>
-          </button>
-          <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-            <i class="fab fa-google-plus-g"></i>
-          </button>
-        </div> -->
       </div>
     </div>
     

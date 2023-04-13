@@ -17,5 +17,4 @@ export class AuthService {
   public email: string;
   public password: string;
   public isLogged: boolean = false; 
-  public age: number;
 }

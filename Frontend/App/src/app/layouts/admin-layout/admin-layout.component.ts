@@ -130,8 +130,27 @@ export class AdminLayoutComponent implements OnInit {
     this.user.role = this.auth.role;
     this.user.cf = this.auth.cf;
     this.http.post("http://192.168.0.14:80/users", this.user).subscribe(data => {
+        this.res = Object.assign(new Res(), data);
+        if(this.res.response == "user created"){
+            this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span> Utente creato con successo', '', {
+                timeOut: 8000,
+                closeButton: true,
+                enableHtml: true,
+                toastClass: "alert alert-success alert-with-icon",
+                positionClass: 'toast-' + 'top' + '-' +  'center'
+              });
+            console.log(this.res.response)
+            this.auth.isLogged = true;
+        } else{
+            this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span> Errori nella creazione, utente già esistete', '', {
+                timeOut: 8000,
+                closeButton: true,
+                enableHtml: true,
+                toastClass: "alert alert-danger alert-with-icon",
+                positionClass: 'toast-' + 'top' + '-' +  'center'
+              });
+        }
       });
-      this.auth.isLogged = true;
   }
 
 }
