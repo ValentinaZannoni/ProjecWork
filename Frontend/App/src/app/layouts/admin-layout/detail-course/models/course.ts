@@ -10,5 +10,5 @@ export class Course {
     description: string;
     price: number;
     students: User[];
-    teacher?: User;
+    teacherId: number;
 }

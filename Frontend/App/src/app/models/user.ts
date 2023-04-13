@@ -5,8 +5,8 @@ export class User {
     id: number;
     name: string;
     surname: string;
-    phoneNumber: string;
-    age: string;
+    phoneNumber: number;
+    age: number;
     role: string;     // T = teacher , S = Student
     cf: string;
     emailAddress: string;

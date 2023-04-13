@@ -118,6 +118,9 @@
           <div style="display:flex; align-items:center">
             <button *ngIf="isTeacher == 'S'" (click)="logout()" type="button" class="blue-button">Logout</button>
           </div>
+          <div style="display:flex; align-items:center">
+            <button *ngIf="isTeacher == 'S'" (click)="deleteAccount()" type="button" class="blue-button">Elimina Account</button>
+          </div>
         </div>
         <hr>
         <!-- <div class="button-container">

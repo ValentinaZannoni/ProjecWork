@@ -9,6 +9,9 @@ import PerfectScrollbar from 'perfect-scrollbar';
 import { AuthService } from './auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { User } from './models';
+import { ToastrService } from 'ngx-toastr';
+import { Res } from './models/res';
 
 @Component({
   selector: 'app-admin-layout',
@@ -22,7 +25,7 @@ export class AdminLayoutComponent implements OnInit {
   private yScrollStack: number[] = [];
   public registering: boolean = false;
  
-  constructor(public auth : AuthService, public location: Location, private router: Router, private http: HttpClient) {}
+  constructor(private toastr: ToastrService, public auth : AuthService, public location: Location, private router: Router, private http: HttpClient) {}
 
   ngOnInit() {
       const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
@@ -90,18 +93,45 @@ export class AdminLayoutComponent implements OnInit {
 
   }
 
+  res : Res;
+
   checkLogin(){
     // check sul login
-    this.auth.isLogged = true;
-    console.log(this.auth.isLogged? "sono loggato" : "non sono loggato")
+    this.http.get("http://192.168.0.14:80/auth/" + this.auth.email + "/" + this.auth.password).subscribe((data: any[]) => {
+        this.res = Object.assign(new Res(), data);
+        if(this.res.response == "User exist"){
+            console.log(this.res.response)
+            this.auth.isLogged = true;
+        }
+        if(this.res.response == "User does not exist"){
+            this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span> Utente non trovato', '', {
+                timeOut: 8000,
+                closeButton: true,
+                enableHtml: true,
+                toastClass: "alert alert-danger alert-with-icon",
+                positionClass: 'toast-' + 'top' + '-' +  'center'
+              });
+            console.log(this.res.response)
+            this.auth.isLogged = false;
+        }
+      });
+    
+    
   }
 
+  user: User = new User();
   addAccount(){
-    console.log("andaleeeeeeeee", this.auth);
-    this.http.post("http://192.168.0.14:80/users", this.auth).subscribe(data => {
-        console.log("andale", data);
-        this.auth.isLogged = true;
+    this.user.name = this.auth.name;
+    this.user.surname = this.auth.surname;
+    this.user.phoneNumber = this.auth.phoneNumber;
+    this.user.age = this.auth.age;
+    this.user.emailAddress = this.auth.email;
+    this.user.password = this.auth.password;
+    this.user.role = this.auth.role;
+    this.user.cf = this.auth.cf;
+    this.http.post("http://192.168.0.14:80/users", this.user).subscribe(data => {
       });
+      this.auth.isLogged = true;
   }
 
 }

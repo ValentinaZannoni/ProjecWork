@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
 
     public isCollapsed = true;
 
-    constructor( private http: HttpClient, location: Location,  private element: ElementRef, private router: Router) {
+    constructor(private http: HttpClient, location: Location,  private element: ElementRef, private router: Router) {
       this.location = location;
           this.sidebarVisible = false;
     }
@@ -152,11 +152,5 @@ export class NavbarComponent implements OnInit {
           }
       }
       return 'Dashboard';
-    }
-
-    deleteAccount(id: string){
-      this.http.delete('/'+ id).subscribe(data => {
-        console.log(data);
-      });
     }
 }

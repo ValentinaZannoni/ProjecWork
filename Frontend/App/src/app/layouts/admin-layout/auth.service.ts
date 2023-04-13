@@ -10,10 +10,11 @@ export class AuthService {
 
   public name: string;
   public surname: string;
-  public phoneNumber: string;
+  public phoneNumber: number;
   public role: string;
   public cf: string;
   public email: string;
   public password: string;
   public isLogged: boolean = false; 
+  public age: number;
 }
