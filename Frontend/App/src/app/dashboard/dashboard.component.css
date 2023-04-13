@@ -1,0 +1,36 @@
+.text-price {
+    color: #4285f4;
+    font-style: bold;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.text-description {
+    color: rgb(94, 90, 90);
+    font-style: bold;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.chart-area {
+    height: auto;
+}
+
+.blue-button {
+    background-color: rgb(136, 136, 255);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-align: left;
+  }
+
+.grey-button {
+background-color: rgb(41, 41, 41);
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+text-align: right;
+}

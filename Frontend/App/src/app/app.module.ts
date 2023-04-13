@@ -5,9 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
-
+import { CommonModule, } from '@angular/common';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+import {BrowserModule} from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 
@@ -26,7 +27,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
 
   ],
   providers: [],

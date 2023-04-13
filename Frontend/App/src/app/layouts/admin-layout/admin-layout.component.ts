@@ -1,23 +1,28 @@
 import {filter} from 'rxjs/operators';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy, PopStateEvent } from '@angular/common';
-
+import { CommonModule, } from '@angular/common';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription ,  Observable } from 'rxjs';
 import PerfectScrollbar from 'perfect-scrollbar';
+import { AuthService } from './auth.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin-layout',
   templateUrl: './admin-layout.component.html',
   styleUrls: ['./admin-layout.component.scss']
 })
+
 export class AdminLayoutComponent implements OnInit {
   private _router: Subscription;
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
-
-  constructor( public location: Location, private router: Router) {}
+  public registering: boolean = false;
+ 
+  constructor(public auth : AuthService, public location: Location, private router: Router, private http: HttpClient) {}
 
   ngOnInit() {
       const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
@@ -82,6 +87,21 @@ export class AdminLayoutComponent implements OnInit {
           bool = true;
       }
       return bool;
+
+  }
+
+  checkLogin(){
+    // check sul login
+    this.auth.isLogged = true;
+    console.log(this.auth.isLogged? "sono loggato" : "non sono loggato")
+  }
+
+  addAccount(){
+    console.log("andaleeeeeeeee", this.auth);
+    this.http.post("http://192.168.0.80:80/users", this.auth).subscribe(data => {
+        console.log("andale", data);
+        this.auth.isLogged = true;
+      });
   }
 
 }

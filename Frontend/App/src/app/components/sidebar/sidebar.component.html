@@ -1,15 +1,15 @@
 
-<div class="logo" >
+<div class="logo" style="background-color:rgb(136, 136, 255)">
     <a class="center simple-text logo-mini">
         <div class="logo-img-big">
-            <img src="./assets/img/angular2-logo-white.png"/>
+            <img src="./assets/img/logo.png"/>
         </div>
     </a>
-    <a style="margin-left:80px; margin-top:30px;" class="simple-text logo-normal">
+    <a class="container-nomeapp simple-text logo-normal">
         NomeApp
     </a>
 </div>
-<div class="sidebar-wrapper">
+<div class="sidebar-wrapper" style="background-color:rgb(136, 136, 255)">
     <ul class="nav">
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
             <a [routerLink]="[menuItem.path]">

@@ -14,6 +14,8 @@ import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { RegisterComponent } from './register/register.component';
+import { DetailCourseComponent } from './detail-course/detail-course.component';
 
 @NgModule({
   imports: [
@@ -22,6 +24,9 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
     FormsModule,
     ChartsModule,
     NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
+    
     ToastrModule.forRoot()
   ],
   declarations: [
@@ -33,6 +38,8 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
+    DetailCourseComponent,
+    RegisterComponent
   ]
 })
 
