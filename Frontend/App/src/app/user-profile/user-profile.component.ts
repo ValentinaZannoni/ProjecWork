@@ -51,38 +51,36 @@ export class UserProfileComponent implements OnInit {
 
 isTeacher:string;
 tableCoursesVisible: boolean = false;
-
+idUser: string;
   ngOnInit() {
     this.route.params.subscribe((params) => this.isTeacher = params.isTeacher);
+    this.route.params.subscribe((params) => this.idUser = params.idUser);
     // this.getData();
+    
   }
 
-  getDasta(){
-    // this.http
-    //    .get<any>('http://192.168.33.171:80/items')
-    //   .subscribe(data => {
-    //     const user = Object.assign(new User(), data);
-    //   });
+  getUser(){
+    this.http.get('http://192.168.33.171:80/user/' + this.idUser).subscribe((data: any) => {
+      this.user = data.map(t => Object.assign(new User(), t));
+    });  
   }
-
-  // getData(){
-  //   this.http.get('http://192.168.33.171:80/courses').subscribe((data: any[]) => {
-  //     this.courses = data.map(t => Object.assign(new Course(), t));
-  //   });
-  // }
 
   logout(){
     this.auth.isLogged = false;
   }
 
   updateData(){
-    this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span> Salvataggio effettuato con successo', '', {
-      timeOut: 8000,
-      closeButton: true,
-      enableHtml: true,
-      toastClass: "alert alert-success alert-with-icon",
-      positionClass: 'toast-' + 'top' + '-' +  'center'
+    this.http.put("", this.user).subscribe(data => {
+      console.log(data);
+      this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span> Salvataggio effettuato con successo', '', {
+        timeOut: 8000,
+        closeButton: true,
+        enableHtml: true,
+        toastClass: "alert alert-success alert-with-icon",
+        positionClass: 'toast-' + 'top' + '-' +  'center'
+      });
     });
+   
     return true;
   }
 

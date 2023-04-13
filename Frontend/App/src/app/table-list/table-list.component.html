@@ -33,7 +33,7 @@
                     {{course.subject}}
                   </td>
                   <td>
-                    <a  routerLinkActive="active" [routerLink]="['/user-profile', 'T']">
+                    <a  routerLinkActive="active" [routerLink]="['/user-profile', 'T', course.teacher.id]">
                       <p>{{course.teacher.surname}} {{course.teacher.name}}</p>
                     </a>
                   </td>
