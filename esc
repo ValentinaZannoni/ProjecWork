@@ -1,0 +1,255 @@
+[33mcommit e343faf28c05b2b3b4892c25520171b822115c9b[m[33m ([m[1;36mHEAD -> [m[1;32mbranchFede2[m[33m, [m[1;31morigin/branchFede2[m[33m)[m
+Author: Federico Gulotta <federico.gulotta@gmail.com>
+Date:   Thu Apr 13 23:45:52 2023 +0200
+
+    endpoint aggiornati e css sistemato
+
+[33mcommit e5b809e27ffa8365643ab08a38d384fac5015d41[m
+Author: Federico Gulotta <federico.gulotta@gmail.com>
+Date:   Thu Apr 13 20:02:38 2023 +0200
+
+    collegamento api
+
+[33mcommit a83ce72012d9814fffd22111f70aaf2868790d58[m
+Author: Federico Gulotta <federico.gulotta@gmail.com>
+Date:   Thu Apr 13 19:58:32 2023 +0200
+
+    aggiunti collegamenti api
+
+[33mcommit ccf89c32a772fb99947ed7a888c61a33500fa3fb[m
+Merge: f030c55d cbe1d953
+Author: Federico Gulotta <federico.gulotta@gmail.com>
+Date:   Thu Apr 13 19:21:09 2023 +0200
+
+    Merge branch 'lorena' into branchFede2
+
+[33mcommit f030c55d97896e54f6b08ace477599d56badd226[m
+Merge: 94279a7f 0e250f4b
+Author: Federico Gulotta <federico.gulotta@gmail.com>
+Date:   Thu Apr 13 19:12:37 2023 +0200
+
+    Merge branch 'branchVale'
+
+[33mcommit 94279a7f7a491ab66010c8bac8e754f67681fe3d[m
+Author: Federico Gulotta <federico.gulotta@gmail.com>
+Date:   Thu Apr 13 19:00:17 2023 +0200
+
+    merge with branchVale
+
+[33mcommit cbe1d95348467b18c4095393a2d2709737bdde46[m[33m ([m[1;31morigin/lorena[m[33m)[m
+Author: lorena-jivan <lorena.jivan.studio@fitstic-edu.com>
+Date:   Thu Apr 13 18:47:44 2023 +0200
+
+    italiano in registrati
+
+[33mcommit a03dfa74e723c269868e30dd2fb5f5b5826ad952[m[33m ([m[1;31morigin/branchFede[m[33m, [m[1;32mbranchFede[m[33m)[m
+Author: Federico Gulotta <federico.gulotta@gmail.com>
+Date:   Thu Apr 13 18:44:14 2023 +0200
+
+    altri collegamenti frontend-backend
+
+[33mcommit 0e250f4bef03a6eef2e7fa3321e7abbde0e2dbf1[m[33m ([m[1;31morigin/branchVale[m[33m)[m
+Author: ValentinaZannoni <valentina.zannoni01@gmail.com>
+Date:   Thu Apr 13 18:41:57 2023 +0200
+
+    continuo collegamento api
+
+[33mcommit 986f971dcd7cec922ce8a3973b89f75cced7569a[m
+Author: lorena-jivan <lorena.jivan.studio@fitstic-edu.com>
+Date:   Thu Apr 13 18:40:15 2023 +0200
+
+    colori
+
+[33mcommit e825488215cb36206b831658dea037a528c3fa21[m
+Author: lorena-jivan <lorena.jivan.studio@fitstic-edu.com>
+Date:   Thu Apr 13 18:31:46 2023 +0200
+
+    margin bottom buttons
+
+[33mcommit bf6c96de66a3d19a8163ae916a67188e515ec916[m
+Author: lorena-jivan <lorena.jivan.studio@fitstic-edu.com>
+Date:   Thu Apr 13 18:30:02 2023 +0200
+
+    buttons e footer
+
+[33mcommit 667ddf7f6ddd04cb6c34af6962ab8a59001e32d7[m
+Author: lorena-jivan <lorena.jivan.studio@fitstic-edu.com>
+Date:   Thu Apr 13 17:38:32 2023 +0200
+
+    dimensioni logo in login/register
+
+[33mcommit dbfeae9d6bc2c46930f106ac41ac73d33188b999[m
+Author: lorena-jivan <lorena.jivan.studio@fitstic-edu.com>
+Date:   Thu Apr 13 17:22:22 2023 +0200
+
+    commentato footer
+
+[33mcommit aefa61ee6b116e387233c4c1fa9ab73825cacb9f[m
+Author: lorena-jivan <lorena.jivan.studio@fitstic-edu.com>
+Date:   Thu Apr 13 17:19:00 2023 +0200
+
+    logo e nome app centrati
+
+[33mcommit 98df2e1b07e6040164219481900963796dc40cfb[m
+Author: lorena-jivan <lorena.jivan.studio@fitstic-edu.com>
+Date:   Thu Apr 13 17:09:07 2023 +0200
+
+    logo sidebar + cambio nome
+
+[33mcommit 65801af04a90a42d51d7427d0137b50a70e44b18[m
+Author: lorena-jivan <lorena.jivan.studio@fitstic-edu.com>
+Date:   Thu Apr 13 16:32:08 2023 +0200
+
+    modifica logo
+
+[33mcommit 6b5dfcfe02f0007a3d1144e52f6425d381ee958c[m
+Author: Federico Gulotta <federico.gulotta@gmail.com>
+Date:   Thu Apr 13 16:07:28 2023 +0200
+
+    collegamenti frontend
+
+[33mcommit 99181d9180e73bcbea2e9d277570c41d6c15c902[m
+Merge: ea99cb4e ede4eff4
+Author: Federico Gulotta <federico.gulotta@gmail.com>
+Date:   Thu Apr 13 14:21:13 2023 +0200
+
+    Merge branch 'branchVale' of https://github.com/ValentinaZannoni/ProjecWork into branchFede
+
+[33mcommit ede4eff44dc90b6eded15d0a84752bfceda2a72b[m
+Author: ValentinaZannoni <valentina.zannoni01@gmail.com>
+Date:   Thu Apr 13 14:18:40 2023 +0200
+
+    collegate prime api
+
+[33mcommit ea99cb4e54510ec0dfd2a9d96361a2bdfac48f00[m
+Author: Federico Gulotta <federico.gulotta@gmail.com>
+Date:   Thu Apr 13 12:03:43 2023 +0200
+
+    aggiunto endpoint autenticazione
+
+[33mcommit a50a7c381e767ae9a6cd21a4fc1a468fa42dbb64[m
+Merge: 4b02306c ef5deca0
+Author: ValentinaZannoni <valentina.zannoni01@gmail.com>
+Date:   Wed Apr 12 21:03:39 2023 +0200
+
+    Merge branch 'branchFede' of https://github.com/ValentinaZannoni/ProjecWork into branchVale
+
+[33mcommit 4b02306c19bd6679d74022fba94b59e2f232f1f8[m
+Author: ValentinaZannoni <valentina.zannoni01@gmail.com>
+Date:   Wed Apr 12 21:03:01 2023 +0200
+
+    Modifiche generali di layout
+
+[33mcommit ef5deca06595f82f0f4d8becbd290311a1dd14e6[m
+Author: Federico Gulotta <federico.gulotta@gmail.com>
+Date:   Wed Apr 12 20:07:00 2023 +0200
+
+    endpoint autenticazione
+
+[33mcommit 2ee6e7a13f4919b00997aa6a107959e14edfc956[m
+Merge: ef8887e2 13caf5e8
+Author: ValentinaZannoni <valentina.zannoni01@gmail.com>
+Date:   Wed Apr 12 12:25:37 2023 +0200
+
+    merge
+
+[33mcommit ef8887e2f72132d0efb6cfd952dbf11541718fdb[m
+Author: ValentinaZannoni <valentina.zannoni01@gmail.com>
+Date:   Wed Apr 12 12:19:27 2023 +0200
+
+    cambiati alcuni colori
+
+[33mcommit 13caf5e8bbf8ea1206df5c9026e1dffbfbfde32c[m
+Author: lorena-jivan <lorena.jivan.studio@fitstic-edu.com>
+Date:   Wed Apr 12 12:12:25 2023 +0200
+
+    commit stile
+
+[33mcommit 133ba9b3a07d52a784ddcfe0e4abdb59ed0798b1[m
+Author: ValentinaZannoni <valentina.zannoni01@gmail.com>
+Date:   Wed Apr 12 11:55:29 2023 +0200
+
+    Aggiunto collegamento profilo navbar
+
+[33mcommit 492e20603f43efd3417ab6ebe4f744ae1a25859d[m
+Author: ValentinaZannoni <valentina.zannoni01@gmail.com>
+Date:   Wed Apr 12 11:29:37 2023 +0200
+
+    Gestito profilo insegnante
+
+[33mcommit 4505f18757f8ae2afda399d04e9fa64c38f18d0b[m
+Merge: 4f7e2647 aa70c25b
+Author: lorena-jivan <lorena.jivan.studio@fitstic-edu.com>
+Date:   Wed Apr 12 10:37:30 2023 +0200
+
+    Merge branch 'branchVale' of https://github.com/ValentinaZannoni/ProjecWork into lorena
+
+[33mcommit 4f7e2647f27499fc5bbcb51dcf55551d43fa53d4[m
+Author: lorena-jivan <lorena.jivan.studio@fitstic-edu.com>
+Date:   Wed Apr 12 10:24:25 2023 +0200
+
+    login italianp
+
+[33mcommit aa70c25b9e832d6fc95e01c32b0dbfec1a1b5329[m
+Author: ValentinaZannoni <valentina.zannoni01@gmail.com>
+Date:   Tue Apr 11 21:25:03 2023 +0200
+
+    Aggiornata pagina del profilo
+
+[33mcommit 4a2228e6e82a491c35b8f9001e9042343b17cd48[m
+Author: Federico Gulotta <federico.gulotta@gmail.com>
+Date:   Tue Apr 11 17:19:48 2023 +0200
+
+    aggiunti endpoint course update e coure delete
+
+[33mcommit 8100b7c104f7a5f1202a9ebc0b0902097185dd38[m
+Author: Federico Gulotta <federico.gulotta@gmail.com>
+Date:   Tue Apr 11 16:55:25 2023 +0200
+
+    aggiunto endpoint user delete
+
+[33mcommit 04e847e0ff7ab1bae11285cd65ef0ac4ac7122fa[m
+Author: Federico Gulotta <federico.gulotta@gmail.com>
+Date:   Tue Apr 11 16:52:39 2023 +0200
+
+    aggiunto user update
+
+[33mcommit d08544ee3e087c18f7d0820d26b3b634b32045d5[m
+Author: lorena-jivan <lorena.jivan.studio@fitstic-edu.com>
+Date:   Wed Apr 5 17:56:48 2023 +0200
+
+    prova dettaglio corsi statica
+
+[33mcommit 7843b59cbfed2be71376bc3b9d35b37846ae9eab[m
+Merge: 419aaa93 8766f18f
+Author: ValentinaZannoni <valentina.zannoni01@gmail.com>
+Date:   Wed Apr 5 17:05:04 2023 +0200
+
+    Merge
+
+[33mcommit 419aaa935a75e134041d36836b7ca4e7d36b346d[m
+Author: ValentinaZannoni <valentina.zannoni01@gmail.com>
+Date:   Wed Apr 5 17:01:29 2023 +0200
+
+    modificata home
+
+[33mcommit 8766f18fff876cda903499dfa28e0eadc25ff7df[m
+Author: lorena-jivan <lorena.jivan.studio@fitstic-edu.com>
+Date:   Wed Apr 5 17:00:36 2023 +0200
+
+    layout login e register completati
+
+[33mcommit b00f4d5d756bfc11a926d1966c78ad486af06438[m
+Author: Federico Gulotta <federico.gulotta@gmail.com>
+Date:   Wed Apr 5 16:23:23 2023 +0200
+
+    aggiunto endpoint get_users
+
+[33mcommit 2503848c8738241ce062392ca4f8807627ad7f9b[m
+Author: Federico Gulotta <federico.gulotta@gmail.com>
+Date:   Wed Apr 5 16:13:11 2023 +0200
+
+    endpoint POST per User e Course
+
+[33mcommit 49870cc82b132162bcf96885bb48597ba22210a2[m
+Author: lorena-jivan <lorena.jivan.stu

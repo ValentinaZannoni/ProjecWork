@@ -19,38 +19,6 @@ export class UserProfileComponent implements OnInit {
 
   user:User;
   coursesTeacher: Course[];
-  // user: User = {
-  //   id: 72387,
-  //   name: "Valentina",
-  //   surname: "Zannoni",
-  //   phoneNumber: "3394873635",
-  //   age: "10",
-  //   role: "S",     // T = teacher , S = Student
-  //   cf: "ZNNVNT01T52E730L",
-  //   emailAddress: "subit@io.it",
-  //   password: null
-  // }
-
-
-//   coursesTeacher: Course[] = [{
-//     id: 6487,
-//     title : "Prova",
-//     subject : "Programmazione",
-//     price: null,
-//     description : "Questo è un bel corso",
-//     teacherId : 0,
-//     students: null,
-//   },
-//   {
-//     id: 5544,
-//     title : "Prova2",
-//     subject : "Matematica",
-//     price: null,
-//     description : "Questo è un brutto corso",
-//     teacherId : 0,
-//     students: null,
-//   }
-// ];
 
 isTeacher:string;
 tableCoursesVisible: boolean = false;

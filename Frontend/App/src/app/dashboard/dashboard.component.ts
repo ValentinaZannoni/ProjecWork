@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../models/course';
+import { User } from '../models';
 
 @Component({
   selector: 'app-dashboard',
@@ -31,12 +32,21 @@ export class DashboardComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
+user:User;
+
   ngOnInit() {
+    //this.getCoursesNotFollowed();
     this.getCourses();
   }
 
   getCourses(){
     this.http.get('http://192.168.0.14:80/courses').subscribe((data: any[]) => {
+      this.courses = data.map(t => Object.assign(new Course(), t));
+    });
+  }
+
+  getCoursesNotFollowed(){
+    this.http.get('http://192.168.0.14:80/courses/not_subscribed/' + this.user.id).subscribe((data: any[]) => {
       this.courses = data.map(t => Object.assign(new Course(), t));
     });
   }
