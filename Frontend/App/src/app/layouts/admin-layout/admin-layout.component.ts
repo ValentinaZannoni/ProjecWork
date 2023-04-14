@@ -97,7 +97,7 @@ export class AdminLayoutComponent implements OnInit {
 
   checkLogin(){
     // check sul login
-    this.http.get("http://192.168.0.14:80/auth/" + this.auth.email + "/" + this.auth.password).subscribe((data: any[]) => {
+    this.http.get("http://192.168.220.1:80/auth/" + this.auth.email + "/" + this.auth.password).subscribe((data: any[]) => {
         this.res = Object.assign(new Res(), data);
         if(this.res.response == "User exist"){
             console.log(this.res.response)
@@ -129,7 +129,7 @@ export class AdminLayoutComponent implements OnInit {
     this.user.password = this.auth.password;
     this.user.role = this.auth.role;
     this.user.cf = this.auth.cf;
-    this.http.post("http://192.168.0.14:80/users", this.user).subscribe(data => {
+    this.http.post("http://192.168.220.1:80/users", this.user).subscribe(data => {
         this.res = Object.assign(new Res(), data);
         if(this.res.response == "user created"){
             this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span> Utente creato con successo', '', {

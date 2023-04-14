@@ -26,7 +26,7 @@ export class DetailCourseComponent implements OnInit {
  
 
   getData(){
-    this.http.get('http://192.168.0.14:80/courses/' + this.courseid).subscribe((data: any) => {
+    this.http.get('http://192.168.220.1:80/courses/' + this.courseid).subscribe((data: any) => {
       //this.course = data.map(t => Object.assign(new Course(), t));
       this.course = Object.assign(new Course(), data);
       console.log("aaaaaa", this.course)

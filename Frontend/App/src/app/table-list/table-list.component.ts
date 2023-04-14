@@ -62,7 +62,7 @@ export class TableListComponent implements OnInit {
   }
 
   getCourses(){
-    this.http.get('http://192.168.0.14:80/courses').subscribe((data: any[]) => {
+    this.http.get('http://192.168.220.1:80/courses').subscribe((data: any[]) => {
       this.courses = data.map(course => Object.assign(new Course(), course));
 
       console.log("aaaa", this.courses);

@@ -66,19 +66,19 @@ idTeacher: string;
   }
 
    getUser(){
-     this.http.get('http://192.168.0.14:80/users/mail/' + this.auth.email).subscribe((data: any) => {
+     this.http.get('http://192.168.220.1:80/users/mail/' + this.auth.email).subscribe((data: any) => {
        this.user = Object.assign(new User(), data);
      });  
    }
 
   getTeacher(){
-    this.http.get('http://192.168.0.14:80/users/' + this.idTeacher).subscribe((data: any) => {
+    this.http.get('http://192.168.220.1:80/users/' + this.idTeacher).subscribe((data: any) => {
       this.user = Object.assign(new User(), data);
     });  
   }
 
   getTeacherCourses(){
-    this.http.get('http://192.168.0.14:80/courses/teacher/' + this.idTeacher).subscribe((data: any[]) => {
+    this.http.get('http://192.168.220.1:80/courses/teacher/' + this.idTeacher).subscribe((data: any[]) => {
       this.coursesTeacher = data.map(courses => Object.assign(new Course(), courses));
     });
   }
@@ -88,7 +88,7 @@ idTeacher: string;
   }
 
   updateData(){
-    this.http.put("http://192.168.0.14:80/users/" + this.user.id, this.user).subscribe(data => {
+    this.http.put("http://192.168.220.1:80/users/" + this.user.id, this.user).subscribe(data => {
       this.res = Object.assign(new Res(), data);
       if(this.res.response == "user modified"){
         this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span> Salvataggio effettuato con successo', '', {
@@ -116,7 +116,7 @@ idTeacher: string;
   res : Res;
 
   deleteAccount(){
-    this.http.delete('http://192.168.0.14:80/users/delete/'+ this.auth.email).subscribe(data => {
+    this.http.delete('http://192.168.220.1:80/users/delete/'+ this.auth.email).subscribe(data => {
       this.res = Object.assign(new Res(), data);
       console.log(this.res.response);
       if(this.res.response == "User deleted"){
