@@ -2,8 +2,8 @@
 </div>
 
 <div class="main-content">
-  <div *ngIf="courses" class="row">
-    <div *ngFor="let course of courses" class="col-lg-4 col-md-6">
+  <div *ngIf="auth.coursesUnubscribed" class="row">
+    <div *ngFor="let course of auth.coursesUnubscribed" class="col-lg-4 col-md-6">
       <div class="card card-chart">
         <div class="card-header">
           <h5 class="card-category">{{course.subject}}</h5>

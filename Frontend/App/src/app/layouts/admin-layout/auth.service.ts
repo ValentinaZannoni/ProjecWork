@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { User } from './models';
 
 @Injectable({
   providedIn: 'root',
@@ -16,5 +17,10 @@ export class AuthService {
   public cf: string;
   public email: string;
   public password: string;
+  public id: number;
   public isLogged: boolean = false; 
+
+  public coursesSubscribed: User[];
+  public coursesUnubscribed: User[];
+
 }

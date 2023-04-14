@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../models/course';
+import { AuthService } from '../layouts/admin-layout/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -29,15 +30,22 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  constructor(private http: HttpClient) { }
+  constructor( public auth : AuthService, private http: HttpClient) { }
 
   ngOnInit() {
-    this.getCourses();
+    // this.getCourses();
+    this.getCoursesNotFollowe();
   }
 
   getCourses(){
     this.http.get('http://192.168.220.1:80/courses').subscribe((data: any[]) => {
       this.courses = data.map(t => Object.assign(new Course(), t));
+    });
+  }
+
+  getCoursesNotFollowe(){
+    this.http.get('http://192.168.220.1:80/courses/not_subscribed/'+ this.auth.id).subscribe((data: any[]) => {
+      this.auth.coursesUnubscribed = data.map(t => Object.assign(new Course(), t));
     });
   }
 

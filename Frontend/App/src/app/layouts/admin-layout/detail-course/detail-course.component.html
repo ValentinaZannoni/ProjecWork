@@ -5,11 +5,12 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h5 style="float: left;" class="title">Dettagli del corso con id {{courseid.toString()}}</h5>
+          <h5 style="float: left;" class="title">Dettagli del corso</h5>
           <button style="margin-left:300px; margin-top: -5px;" (click)="Unsubscribe()" class="blue-button">Disiscriviti dal corso</button>
         </div>
         <div class="card-body all-icons">
-          <p style="margin-top: 10px;"><strong>Titolo: </strong> {{course.title}}</p>
+          <div style="clear:both; margin-top:20px;"></div>
+          <p><strong>Titolo: </strong> {{course.title}}</p>
           <p><strong>Materia: </strong> {{course.subject}}</p>
           <p><strong>Prezzo: </strong> {{course.price}}</p>
           <p><strong>Descrizione: </strong> {{course.description}}</p>

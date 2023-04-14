@@ -57,7 +57,8 @@ export class TableListComponent implements OnInit {
   constructor(public auth: AuthService, private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit() {
-  this.getCourses()
+  //this.getCourses()
+  this.getCoursesFollowe()
    if(this.auth.isLogged) console.log("sono loggato")
   }
 
@@ -66,6 +67,12 @@ export class TableListComponent implements OnInit {
       this.courses = data.map(course => Object.assign(new Course(), course));
 
       console.log("aaaa", this.courses);
+    });
+  }
+
+  getCoursesFollowe(){
+    this.http.get('http://192.168.220.1:80/courses/subscribed/'+ this.auth.id).subscribe((data: any[]) => {
+      this.auth.coursesSubscribed = data.map(t => Object.assign(new Course(), t));
     });
   }
 }

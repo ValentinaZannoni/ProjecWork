@@ -8,7 +8,7 @@
           <h4 class="card-title">Corsi Seguiti</h4>
         </div>
         <div class="card-body">
-          <div *ngIf="courses" class="table-responsive">
+          <div *ngIf="auth.coursesSubscribed" class="table-responsive">
             <table class="table">
               <thead class="blue-text">
                 <th>
@@ -24,7 +24,7 @@
                   Vedi Dettaglio 
                 </th>
               </thead>
-              <tbody *ngFor="let course of courses">
+              <tbody *ngFor="let course of auth.coursesSubscribed">
                 <tr>
                   <td>
                     {{course.title}}

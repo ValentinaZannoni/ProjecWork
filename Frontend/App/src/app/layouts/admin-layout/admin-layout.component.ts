@@ -102,6 +102,8 @@ export class AdminLayoutComponent implements OnInit {
         if(this.res.response == "User exist"){
             console.log(this.res.response)
             this.auth.isLogged = true;
+            this.getDataUser();
+
         }
         if(this.res.response == "User does not exist"){
             this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span> Utente non trovato', '', {
@@ -141,6 +143,8 @@ export class AdminLayoutComponent implements OnInit {
               });
             console.log(this.res.response)
             this.auth.isLogged = true;
+            this.getDataUser();
+
         } else{
             this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span> Errori nella creazione, utente già esistete', '', {
                 timeOut: 8000,
@@ -153,4 +157,10 @@ export class AdminLayoutComponent implements OnInit {
       });
   }
 
+  getDataUser(){
+    this.http.get('http://192.168.220.1:80/users/mail/' + this.auth.email).subscribe((data: any) => {
+      this.user = Object.assign(new User(), data);
+      this.auth.id = this.user.id;
+    }); 
+  }
 }
